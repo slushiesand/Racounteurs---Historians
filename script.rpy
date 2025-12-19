@@ -2,7 +2,10 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character
+define ki = Character("King")
+define ka = Character("Kazan")
 
+define qu = Character("Queen")
 
 # The game starts here.
 
@@ -18,13 +21,13 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    "You've created a new Ren'Py game."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
 
