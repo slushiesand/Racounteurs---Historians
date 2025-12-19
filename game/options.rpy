@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Raconteurs Historians")
+define config.name = _("Raconteurs & Historians")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -30,6 +30,17 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+A game made for Hackclub's December 2025 Storyboard. 
+
+Programs Used: 
+- Visual Code Studio: Coding
+- Ibis Paint X: Art
+- Live2D Cubism: Animation (please never let me touch live2d again)
+- and of course, Ren'Py: The software the game runs on.
+
+And now, for the absurd amount of free assets that I used for this because you can't catch me drawing backgrounds:
+- ... well, there would be, if I made anything in the game yet.
+
 """)
 
 
