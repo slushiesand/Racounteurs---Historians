@@ -1,0 +1,9 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 61: unterminated string literal
+    ki “Of course, of course. I'm glad! That one’s really underrated! But everyone in the world has probably heard it already.\nWe need… something NEW!”
+
+Ren'Py Version: Ren'Py 8.5.0.25111603
+Sat Dec 27 17:56:22 2025

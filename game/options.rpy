@@ -35,7 +35,6 @@ A game made for Hackclub's December 2025 Storyboard.
 Programs Used: 
 - Visual Code Studio: Coding
 - Ibis Paint X: Art
-- Live2D Cubism: Animation (please never let me touch live2d again)
 - and of course, Ren'Py: The software the game runs on.
 
 And now, for the absurd amount of free assets that I used for this because you can't catch me drawing backgrounds:
