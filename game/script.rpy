@@ -1,17 +1,44 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character
-
+﻿
 init python:
     import random
     daysLeft = 3
     itemsFound = 0
     time = ["morning", "afternoon", "evening", "night"]
     timeCounter = 0
-    manu = 1
-    location = [""]
-#hallway, study, kitchen, bedroom, storage, living room, dining room, laundry room, guest bedroom, computer room, bathroom, library, 
+    manuscript = 1
+    location = ["Hallway", "Study", "Kitchen", "Bedroom", "Storage", "Living Room", "Dining Room", "Laundry Room", "Guest Bedroom", "Computer Room", "Bathroom", "Library"]
+
+    def locationDetermine(location):
+
+        """renpy
+        if location == "Hallway":
+            jump hall
+        elif location == "Study":
+            jump study
+        elif location == "Kitchen":
+            jump kitchen
+        elif location == "Bedroom":
+            jump bedroom
+        elif location == "Storage":
+            jump storage
+        elif location == "Living Room":
+            jump living
+        elif location == "Dining Room":
+            jump dining
+        elif location = "Laundry Room":
+            jump laundry
+        elif location = "Guest Bedroom":
+            jump guest
+        elif location = "Computer Room":
+            jump computer
+        elif location = "Bathroom":
+            jump bath
+        elif location = "Library":
+            jump library
+        """
+
+        #yandev ahh code. this is what happens when you havent coded in python for like 2 years
+
 
 define ki = Character("King", color = "#FDCA62")
 define ka = Character("Kazan", color="#A6E1FE")
@@ -217,40 +244,117 @@ label start:
     show king neutral
     ki "Let me write something to Queen to let him know that I’m okay, then I can begin my expedition."
 
-    while daysLeft > 0:
-        scene bg kitchen
-        show king neutral
-        with wipeleft
+    label loop:
+        while daysLeft > 0:
+            scene bg kitchen
+            show king neutral
+            with wipeleft
 
-        if timeCounter == 0:
-            if daysLeft == 3:
-                ki "I suppose I should eat something. Let's see what's in my bag…"
-                ki "Some granola bars and a bottle of water. Surprised this didn't freeze over. Sure, that'll do for today. Let's not rob the fridge just yet!"
-            elif daysLeft == 2:
-                ki "I said I wasn't gonna rob the fridge yesterday, but that doesn't account for today. Hopefully, none of this is expired…"
-                ki "Huh. The fridge seems to be working. Did a backup generator go off? I should still go with something with a long shelf-life to be safe, though."
-                show king neutral happy
-                ki "Let’s see… a jar of preserved fruit jelly. I saw some bread on the counter, as well. Hehe, a good breakfast for me today!"
-            else: 
-                ki "The fridge served me well last time. Let's see…"
-                ki "... Some pancakes seem to have appeared overnight. They’re a bit charred at the edges, but charming enough."
-                menu:
-                    "Should I eat them?"
+            if timeCounter == 0:
+                if daysLeft == 3:
+                    ki "I suppose I should eat something. Let's see what's in my bag…"
+                    ki "Some granola bars and a bottle of water. Surprised this didn't freeze over. Sure, that'll do for today. Let's not rob the fridge just yet!"
+                elif daysLeft == 2:
+                    ki "I said I wasn't gonna rob the fridge yesterday, but that doesn't account for today. Hopefully, none of this is expired…"
+                    ki "Huh. The fridge seems to be working. Did a backup generator go off? I should still go with something with a long shelf-life to be safe, though."
+                    show king neutral happy
+                    ki "Let’s see… a jar of preserved fruit jelly. I saw some bread on the counter, as well. Hehe, a good breakfast for me today!"
+                else: 
+                    ki "The fridge served me well last time. Let's see…"
+                    ki "... Some pancakes seem to have appeared overnight. They’re a bit charred at the edges, but charming enough."
+                    menu:
+                        "Should I eat them?"
+                    
+                        "Yes!!!!!!!!!!!!!":
+                            $ pass
+                        "No.":
+                            $ pass
                 
-                    "Yes!!!!!!!!!!!!!":
-                        $ pass
-                    "No.":
-                        $ pass
+                    ki "Luckily, I still have some jam from yesterday."
+                    show king neutral annoy
+                    ki "Now that I think about it… I should probably pay for this too…"
+            elif timeCounter == 4:
+                $ daysLeft -= 1
+                $ timeCounter = 0
+                jump loop
             
-                ki "Luckily, I still have some jam from yesterday."
-                show king neutral annoy
-                ki "Now that I think about it… I should probably pay for this too…"
+                    
+            python:
+                #ok this is going to be incredibly inefficient but i dont feel like devoting brainpower to making this efficient
+                loc1 = random.choice(location)
+                
+
+            menu:
+                "It looks like the snow will melt in [daysLeft] days. It's currently [time[timeCounter]]. Where should I go?"
             
-        ki "It looks like the snow will melt in [daysLeft] days. It's currently [time[timeCounter]]. Where should I go?"
+                "[ loc1 ]":
+                    $ timeCounter += 1
+                    $ locationDetermine(loc1)
 
-        python:
-
+                "Basement":
+                    $ timeCounter += 1
+                    jump basement
+    
         
-
-
+            
+    #loop end here
+    "this runs when time runs out."
     return
+        
+    label basement:
+            "test"
+            jump loop
+    
+    label hall:
+        "1"
+
+
+        jump loop
+
+    label study:
+        "2"
+        jump loop
+
+    label kitchen:
+        "3"
+        jump loop
+
+    label bedroom:
+        "4"
+        jump loop
+    
+    label storage:
+        "5"
+        jump loop
+
+    label living:
+        "6"
+        jump loop
+
+    label dining:
+        "7"
+        jump loop
+
+    label laundry:
+        "8"
+        jump loop
+
+    label guest:
+        "9"
+        jump loop
+
+    label computer:
+        "10"
+        jump loop
+
+    label bath:
+        "11"
+        jump loop
+
+    label library:
+        "12"
+        jump loop
+    
+    "just in case something goes wrong"
+    return
+

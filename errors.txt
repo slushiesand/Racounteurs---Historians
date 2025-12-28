@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 229: else clause expects a non-empty block.
-    else:
-          ^
+File "game/script.rpy", line 277: invalid syntax
+    daysLeft ++
+                                 ^
+
+File "game/script.rpy", line 291: invalid syntax
+    timeCounter ++
+                                            ^
+
+File "game/script.rpy", line 295: invalid syntax
+    timeCounter ++
+                                            ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Sat Dec 27 20:32:42 2025
+Sat Dec 27 21:43:52 2025
