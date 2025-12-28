@@ -7,6 +7,11 @@ init python:
     import random
     daysLeft = 3
     itemsFound = 0
+    time = ["morning", "afternoon", "evening", "night"]
+    timeCounter = 0
+    manu = 1
+    location = [""]
+#hallway, study, kitchen, bedroom, storage, living room, dining room, laundry room, guest bedroom, computer room, bathroom, library, 
 
 define ki = Character("King", color = "#FDCA62")
 define ka = Character("Kazan", color="#A6E1FE")
@@ -180,7 +185,72 @@ label start:
     ki "... Ah-hah."
     "Just what I wanted."
     ki "Alright, get comfy, me. It's going to be a long night."
+    hide king
+    with fade
 
+    pause 3.0
+    #music here?
+    """
+    My eyes flutter open as the sun peeks through the ventilation gaps in the door. Not the worst sleep I've had, but definitely could have a little more leg room.
+
+    I cautiously leave my closet and head downstairs to the kitchen.
+    """
+
+    scene bg kitchen
+    with fade
+    "It's hard to tell if the scene has been touched since last night, namely because..."
+    show bg dining
+    with dissolve
+    "There's an avalanche of snow coming through the window!"
+    show bg forest4
+    with vpunch
+    "Truthfully, the whole cabin is buried in snow!"
+    show bg kitchen
+    show king neutral happy
+    with dissolve
+    ki "Oh my! How unfortunate! Or rather… how fortunate!"
+    show king neutral ecstatic
+    with vpunch
+    ki "A writer trapped in an empty cabin for who-knows-how-long? That's just SCREAMING for a good story to be found!"
+    show king neutral happy
+    ki "O’ thank you, chaotic particles that have collided in such a way to grant this luck to me!"
+    show king neutral
+    ki "Let me write something to Queen to let him know that I’m okay, then I can begin my expedition."
+
+    while daysLeft > 0:
+        scene bg kitchen
+        show king neutral
+        with wipeleft
+
+        if timeCounter == 0:
+            if daysLeft == 3:
+                ki "I suppose I should eat something. Let's see what's in my bag…"
+                ki "Some granola bars and a bottle of water. Surprised this didn't freeze over. Sure, that'll do for today. Let's not rob the fridge just yet!"
+            elif daysLeft == 2:
+                ki "I said I wasn't gonna rob the fridge yesterday, but that doesn't account for today. Hopefully, none of this is expired…"
+                ki "Huh. The fridge seems to be working. Did a backup generator go off? I should still go with something with a long shelf-life to be safe, though."
+                show king neutral happy
+                ki "Let’s see… a jar of preserved fruit jelly. I saw some bread on the counter, as well. Hehe, a good breakfast for me today!"
+            else: 
+                ki "The fridge served me well last time. Let's see…"
+                ki "... Some pancakes seem to have appeared overnight. They’re a bit charred at the edges, but charming enough."
+                menu:
+                    "Should I eat them?"
+                
+                    "Yes!!!!!!!!!!!!!":
+                        $ pass
+                    "No.":
+                        $ pass
+            
+                ki "Luckily, I still have some jam from yesterday."
+                show king neutral annoy
+                ki "Now that I think about it… I should probably pay for this too…"
+            
+        ki "It looks like the snow will melt in [daysLeft] days. It's currently [time[timeCounter]]. Where should I go?"
+
+        python:
+
+        
 
 
     return

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 137: choice menuitem expects a non-empty block.
-    "Break through the window.":
-                                ^
+File "game/script.rpy", line 229: else clause expects a non-empty block.
+    else:
+          ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Sat Dec 27 18:46:09 2025
+Sat Dec 27 20:32:42 2025
