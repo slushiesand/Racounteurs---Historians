@@ -1,60 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 293, in script
-    $ renpy.jump(loc1)
-  File "game/script.rpy", line 293, in <module>
-    $ renpy.jump(loc1)
-      ~~~~~~~~~~^^^^^^
-renpy.game.JumpException: Living Room
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 293, in script
-    $ renpy.jump(loc1)
-renpy.script.LabelNotFound: could not find label 'Living Room'.
+  File "game/script.rpy", line 287, in script
+    python:
+  File "game/script.rpy", line 296, in <module>
+    if unavailable.len() >= 11:
+       ^^^^^^^^^^^^^^^         
+AttributeError: 'RevertableList' object has no attribute 'len'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 293, in script
-    $ renpy.jump(loc1)
+  File "game/script.rpy", line 287, in script
+    python:
   File "renpy/ast.py", line 1187, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1273, in py_exec_bytecode
     exec(bytecode, globals, locals)
     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 293, in <module>
-    $ renpy.jump(loc1)
-      ~~~~~~~~~~^^^^^^
-  File "renpy/exports/statementexports.py", line 271, in jump
-    raise renpy.game.JumpException(label)
-renpy.game.JumpException: Living Room
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 401, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 591, in main
-    run(restart)
-    ~~~^^^^^^^^^
-  File "renpy/main.py", line 137, in run
-    renpy.execution.run_context(True)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "renpy/execution.py", line 1027, in run_context
-    context.run()
-    ~~~~~~~~~~~^^
-  File "game/script.rpy", line 293, in script
-    $ renpy.jump(loc1)
-  File "renpy/script.py", line 1201, in lookup
-    raise LabelNotFound(original)
-renpy.script.LabelNotFound: could not find label 'Living Room'.
+  File "game/script.rpy", line 296, in <module>
+    if unavailable.len() >= 11:
+       ^^^^^^^^^^^^^^^         
+AttributeError: 'RevertableList' object has no attribute 'len'
 
 Windows-11-10.0.26100-SP0 AMD64
 Ren'Py 8.5.0.25111603
 Raconteurs & Historians 1.0
-Sat Dec 27 22:41:42 2025
+Sun Dec 28 00:31:04 2025

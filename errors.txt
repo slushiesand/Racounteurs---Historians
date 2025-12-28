@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 28: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
-    elif location = "Laundry Room":
-             ^^^^^^^^^^^^^^^^^^^^^^^^^
+File "game/script.rpy", line 319: Indentation mismatch.
+    "No":
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Sat Dec 27 22:18:03 2025
+Sat Dec 27 23:01:46 2025

@@ -1,12 +1,16 @@
 ﻿
 init python:
     import random
-    daysLeft = 3
+
     itemsFound = 0
+    manuscript = 1
+
     time = ["morning", "afternoon", "evening", "night"]
     timeCounter = 0
-    manuscript = 1
+    daysLeft = 3
+
     location = ["Hallway", "Study", "Kitchen", "Bedroom", "Storage", "Living Room", "Dining Room", "Laundry Room", "Guest Bedroom", "Computer Room", "Bathroom", "Library"]
+    unavailable = []
 
     def locationDetermine(location):
 
@@ -71,7 +75,6 @@ label start:
 
     $ combo = random.randint(1000, 9999)
 
-
     #show top_text "This text is shown at the center-top of the screen"
     #ok btw all the text is prolly gonna be copy and pasted from the google docs i am NOT writing for 8 hours again that was hell
 
@@ -83,10 +86,10 @@ label start:
     I like stories, too. So that's why…
     """
 
-    # This ends the game.
 
     scene cg inn tired
     with Fade(1.0, 0, 1.0)
+    play music "audio/Symphony no. 5 in Cm, Op. 67 - II. Andante con moto (For Recorder Ensemble - Papalin).mp3"
 
     ki "... Ugh! I have no inspiration!"
     qu "It's alright, King. We had a good session today. The people seemed to especially enjoy our telling of the Ouroboros Angel."
@@ -118,6 +121,8 @@ label start:
     scene bg forest1
     show king neutral at right
     with fade
+    stop music fadeout 1.0
+    
 
     """
     I reach the forest on the edge of town. Queen and I had walked through it when we first came, but the road on which we walked is no longer visible.
@@ -204,7 +209,9 @@ label start:
     """
     I leave some money on the table as a gesture of good will, and scuttle to find somewhere to hide for the night. 
 
-    If there is someone in the house, I should find somewhere secluded to sleep so they don't find me. A blanket closet may be a good candidate.
+    If there is someone in the house, I should find somewhere secluded to sleep so they don't find me. 
+    
+    A blanket closet may be a good candidate.
     """
 
     #ideally walking sound goes here
@@ -216,7 +223,6 @@ label start:
     with fade
 
     pause 3.0
-    #music here?
     """
     My eyes flutter open as the sun peeks through the ventilation gaps in the door. Not the worst sleep I've had, but definitely could have a little more leg room.
 
@@ -246,6 +252,7 @@ label start:
 
     label loop:
         while daysLeft > 0:
+            play music "audio/Grand Dark Waltz Allegretto.mp3" if_changed fadein 1.0
             scene bg kitchen
             show king neutral
             with wipeleft
@@ -281,7 +288,36 @@ label start:
                     
             python:
                 #ok this is going to be incredibly inefficient but i dont feel like devoting brainpower to making this efficient
+                alreadyChosen = []
+
                 loc1 = random.choice(location)
+                while loc1 in unavailable:
+                    loc1 = random.choice(location)
+                alreadyChosen.append(loc1)
+
+                if len(unavailable) >= 11:
+                    loc2 = "Unavailable"
+                else:
+                    loc2 = random.choice(location)
+                    while loc2 in unavailable or loc2 in alreadyChosen:
+                        loc2 = random.choice(location)
+                    alreadyChosen.append(loc2)
+
+                if len(unavailable) >= 10:
+                    loc3 = "Unavailable"
+                else: 
+                    loc3 = random.choice(location)
+                    while loc3 in unavailable or loc3 in alreadyChosen:
+                        loc3 = random.choice(location)
+                    alreadyChosen.append(loc3)
+
+                if len(unavailable) >= 9:
+                    loc4 = "Unavailable"
+                else: 
+                    loc4 = random.choice(location)
+                    while loc4 in unavailable or loc4 in alreadyChosen:
+                        loc4 = random.choice(location)
+                    alreadyChosen.append(loc4)
                 
 
             menu:
@@ -289,7 +325,20 @@ label start:
             
                 "[ loc1 ]":
                     $ timeCounter += 1
+                    $ unavailable.append(loc1)
                     $ locationDetermine(loc1)
+                "[ loc2 ]":
+                    $ timeCounter += 1
+                    $ unavailable.append(loc2)
+                    $ locationDetermine(loc2)
+                "[ loc3 ]":
+                    $ timeCounter += 1
+                    $ unavailable.append(loc3)
+                    $ locationDetermine(loc3)
+                "[ loc4 ]":
+                    $ timeCounter += 1
+                    $ unavailable.append(loc4)
+                    $ locationDetermine(loc4)
 
                 "Basement":
                     $ timeCounter += 1
@@ -298,12 +347,30 @@ label start:
         
             
     #loop end here
+    # dev menu: shirt + d; console: shift + o
     "this runs when time runs out."
     return
         
     label basement:
-            "test"
-            jump loop
+            
+            while True:
+                menu:
+                    "The basement is quite barren and boring, except for a door that requires an numeric password. Enter something?"
+
+                    "Yes":
+                        python:
+                            userPass = renpy.input("What will you enter?", allow="1234567890", length=4, )
+                            if int(userPass) == combo:
+                                renpy.jump("ending")
+                            else:
+                                ki ("Hm… the door doesn't budge. Wrong answer, I suppose.")
+                        
+                    "No":
+                        ki "Hm... I don't feel ready yet. I will come back later."
+                        jump loop
+    label ending:
+        "oh fart you did it"
+        return
     
     label hall:
         "1"
@@ -353,6 +420,6 @@ label start:
         "12"
         jump loop
     
-    "just in case something goes wrong"
+    "IF YOU'RE SEEING THIS in game SOMETHING WENT WRONG PLEASE REPORT THANKS - slushie"
     return
 
