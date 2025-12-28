@@ -75,7 +75,9 @@ label start:
     """
     I quickly gather the things I need for any inspiration adventure: A leather notebook, a belt of stationary, and a small empty bag for any goodies I find along the way, along with general survival supplies just in case I need it.
     
-    Queen and I have been doing this kind of thing for a long time. We’re a two-man theatre, gathering special stories from all around the world for those who wish to hear our gallant tales. I do most of the writing and information gathering, while Queen composes music and choreographs. It's a wonderful life. I wouldn't have it any other way!
+    Queen and I have been doing this kind of thing for a long time. We’re a two-man theatre, gathering special stories from all around the world for those who wish to hear our gallant tales. 
+    
+    I do most of the writing and information gathering, while Queen composes music and choreographs. It's a wonderful life. I wouldn't have it any other way!
     
     My partner says goodbye as I rush through the bed-and-breakfast door. The sun is threatening to set soon, so I should finish my walk quickly.
     """
@@ -90,12 +92,12 @@ label start:
     
     In fact, everything seems to be flattened to one single surface of pure snow, with trees serving as the only points of interest on this coordinate plane.
     """
-    show king think frown
+    show king think frown at right
     "Nevertheless, there's probably something interesting out there, so I continue on."
     
 
     scene bg forest2
-    show king neutral frown
+    show king neutral frown at right
     with wipeleft
 
     """
@@ -117,7 +119,7 @@ label start:
     
     "It gets darker still. My stamina wanes as the moon tickles the horizon. Once again, my greed has overtaken my instinct for safety."
 
-    show king neutral happy
+    show king neutral happy at right
     """
     But in the distance, I see a saving grace: a cabin! 
 
@@ -127,10 +129,58 @@ label start:
     """
 
     scene bg window
+    with dissolve
     """
-        …
+    …
     Nothing. I guess I'll have to do this the hard way, then. 
-    Lockpick the door, or break through the window? 
     """
+    menu:
+        "Lockpick through the door, or break through the window?"
+
+        "Break through the window.":
+            $ pass
+
+        "Break through the window.":
+            $ pass
+
+    "Hehe, the answer is obvious! Break through the window!!"
+
+    scene black
+    with vpunch
+
+    """
+    I barrel my body through the window.
+
+    My body rolls over a dining table as glass spills over the floor.
+
+    Eventually, I land on the shadowy floor of a kitchen, glass scratching at the inner lining of my coat.
+
+    """
+
+    show king neutral sad
+
+    ki "Oof..."
+
+    """
+    Still, I should be fine.
+
+    More importantly, no alarm systems go off. I might not die for trespassing!
+    """
+
+    show king neutral happy
+
+    """
+    I leave some money on the table as a gesture of good will, and scuttle to find somewhere to hide for the night. 
+
+    If there is someone in the house, I should find somewhere secluded to sleep so they don't find me. A blanket closet may be a good candidate.
+    """
+
+    #ideally walking sound goes here
+    show king neutral
+    ki "... Ah-hah."
+    "Just what I wanted."
+    ki "Alright, get comfy, me. It's going to be a long night."
+
+
 
     return
