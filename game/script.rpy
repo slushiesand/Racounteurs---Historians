@@ -10,35 +10,35 @@ init python:
 
     def locationDetermine(location):
 
-        """renpy
+        
         if location == "Hallway":
-            jump hall
+            renpy.jump("hall")
         elif location == "Study":
-            jump study
+            renpy.jump("study")
         elif location == "Kitchen":
-            jump kitchen
+            renpy.jump("kitchen")
         elif location == "Bedroom":
-            jump bedroom
+            renpy.jump("bedroom")
         elif location == "Storage":
-            jump storage
+            renpy.jump("storage")
         elif location == "Living Room":
-            jump living
+            renpy.jump("living")
         elif location == "Dining Room":
-            jump dining
-        elif location = "Laundry Room":
-            jump laundry
-        elif location = "Guest Bedroom":
-            jump guest
-        elif location = "Computer Room":
-            jump computer
-        elif location = "Bathroom":
-            jump bath
-        elif location = "Library":
-            jump library
-        """
+            renpy.jump("dining")
+        elif location == "Laundry Room":
+            renpy.jump("laundry")
+        elif location == "Guest Bedroom":
+            renpy.jump("guest")
+        elif location == "Computer Room":
+            renpy.jump("computer")
+        elif location == "Bathroom":
+            renpy.jump("bath")
+        elif location == "Library":
+            renpy.jump("library")
+        
 
         #yandev ahh code. this is what happens when you havent coded in python for like 2 years
-
+        
 
 define ki = Character("King", color = "#FDCA62")
 define ka = Character("Kazan", color="#A6E1FE")
@@ -307,8 +307,6 @@ label start:
     
     label hall:
         "1"
-
-
         jump loop
 
     label study:
