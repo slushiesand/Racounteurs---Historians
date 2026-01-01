@@ -3,7 +3,7 @@ init python:
     import random
 
     itemsFound = 0
-    manuscript = 1
+    manuscript = 0
 
     time = ["morning", "afternoon", "evening", "night"]
     timeCounter = 0
@@ -53,12 +53,6 @@ define s = Character("Sister", color="#FFF")
 define m = Character("Mother", color="#FFF")
 
 image black = "#000"
-#image darkener = Frame(Solid("#000"))
-
-
-# lowkey forgot everything we are relying on the documentation 100%
-
-
 
 # The game starts here.
 
@@ -233,10 +227,10 @@ label start:
     scene bg kitchen
     with fade
     "It's hard to tell if the scene has been touched since last night, namely because..."
-    show bg dining
+    show bg snow
     with dissolve
     "There's an avalanche of snow coming through the window!"
-    show bg forest4
+    show bg snow2
     with vpunch
     "Truthfully, the whole cabin is buried in snow!"
     show bg kitchen
@@ -353,7 +347,33 @@ label start:
             
     #loop end here
     # dev menu: shirt + d; console: shift + o
-    "this runs when time runs out."
+    scene black:
+            alpha: 1.0
+    with fade
+
+    "In the end, I left the cabin after three days, no homeowner in sight. As for the story I made…"
+
+    if itemsFound == 1:
+        "I actually had to take lots of creative liberties. I didn't gather as much information as I thought. People didn't seem as engaged as I had hoped. Maybe it's a good filter story instead…"
+    elif itemsFound == 2:
+        "The story ended up quite imaginative. People seemed interested, but it didn't hit as hard as I would have liked. I suppose it was as truthful as any good fairytale."
+    elif itemsFound == 3:
+        "The story was a big hit, although I had to fill in some gaps here and there. I think I caught a few sniffling at the darkest pitfalls in the story, though no one outright cried."
+    else: 
+        "The story was a great hit! People seemed to find its more grounded and realistic nature an interesting and engaging departure from our regular material, and so listened even deeper than usual! "
+    "I think this story is certainly a good runner for our staple catalog, except…"
+
+    show bg forest3
+    with fade
+    """
+    When I went back to that cabin with Queen some time later, it was totally abandoned. The power wasn't on, the food in the fridge had long expired, and the inside was ravaged from the wind flowing through the still-broken window.
+    
+    I found a door in the basement with an alphabetic lock. With some force, I successfully broke in, but that room, too, was abandoned.
+    
+    The only thing cluing to someone being there was a glass pocketwatch with a broken face.
+    
+    Ending: Back in Time. (3/4)
+    """
     return
         
     label basement:
@@ -407,34 +427,336 @@ label start:
 
             show kazan hip annoy
             ka "Ahem. I'm sorry, sir. Please excuse me. I'm just a humble historian interested in your history."
+            
+            show king neutral
+            ki "I am flattered. I, too, was just a humble boy. I think Aelred is much more interesting, but I suppose we are ‘soulbound,’ as you said."
+
+            show kazan down surprise
+            ka "Did you really read all of that? Geez."
+            ka "I apologize, I haven't edited that yet. Excuse me if anything is incorrect."
+
+            show king back sad 
+            ki "I… couldn’t tell you, really. It's been a long time. I couldn't even tell you my father's face if I wanted to. Or what I looked like back then."
+            show king back happy
+            ki "… Have you ever heard of the Ship of Theseus?"
+
+            show kazan neutral
+            "Kazan nodded."
+
+            show king neutral sad 
+            ki """
+            Perhaps that's the life I live now. Rebuilt out of primordial soup, a mouthpiece for a God that saved a boy whose body expired centuries ago. Hell, do I even have the same neurons anymore? 
+            
+            I am nothing like that boy that died of the plague. And yet I still harbor his memories. Maybe that's what growing up is like. I wouldn't know. We died young.
+            """
+
+            ka "..."
+
+            show king neutral
+            ki """
+            I don't necessarily regret my choice. I think my life is fun. But that paper made me wonder… what would life be like if I continued staying in that town? If I stayed a cleric’s boy from the 1300s?
+            
+            Well, I guess I wouldn't have lived. So you could say it's a pointless question! Hehe.
+            """
+
+            show kazan hip annoy
+            ka "In the end, even being chosen by God seems like a painful experience. You have to leave everyone behind."
+
+            show king back annoy
+            ki "Hm. But you seemed keen to leave everyone behind, too."
+
+            show kazan down surprise
+            ka "What?"
+
+            show king back happy
+            ki "I mean your sister. ‘It's better for your future if you forget about me,’ not to mention the rest of that letter. How depressing!"
+
+            show kazan hip annoy
+            ka "... You don't have to say it so condescendingly. I know what I am."
+            show kazan up two
+            ka """
+            So what if I need to abandon them? You don't regret it either, right? It's for the greater good. 
+            
+            You – actually, I suppose you'd know if you read the letter –, but that woman… I'm not in her good graces. 
+            
+            Any association with me gets you on the bottom of society, too. And my sister deserves better.
+            """
+
+            show king neutral
+            ki """
+            You are a smart man. You have ambitions. You do good research. I wouldn't recommend running away. You have the potential to change the world.
+            
+            This wasn't my original plan when I came here, but seeing as we have a mutual understanding of each other, I have a very special proposal for you.”
+            """
+
+            show king shrug
+            ki "How would you like to join the Proponents of Chaos?"
+
+            show kazan down surprise
+
+            "Kazan is silent. Even more bewildered than I anticipated."
+
+            ka "Wh… what?? Me? Proponent of Chaos?"
+
+            show king neutral happy
+            ki "Sure! We’ve needed someone to do the more formal paperwork for a long time. We've got serious members, but I think you've got enough sanity and experience to do it properly and not be bored out of your mind. Plus, I like you!"
+            
+            show kazan neutral
+            ka "So… you're just hiring me to be an accountant?"
+
+            show king neutral
+            ki "You'll do fun stuff, too! I'm not THAT heartless! In fact, I've already got a fun expedition for you in mind, but only if you accept."
+            show king shrug
+            ki "So? How about it, my friend? Will you accept our invitation into chaos?"
+
+            show kazan down surprise
+            ka "I..."
+
+            scene black:
+                alpha 1.0
+            with fade
+            ka "... Accept."
+
+            scene cg true one 
+            with fade
+
+            ki "Knock, knock. I've got a new member to introduce to you."
+            ka "ohmygodohmygod HOW THE HELL AM I BREATHING?"
+            qu "Sir, if you freak out more, I'm not sure how much longer you will continue breathing."
+            ka "Uhm. Okay. Haha. This is fine, then--"
+
+            show cg true two
+            with vpunch
+
+            fu """
+            A new member? Hahaha~! I haven't heard of such a thing in a few years! 
+            
+            Pray tell, what’s going on with this one? Anomaly from a liminal space? Immortal by virtue of belief? 
+            
+            Or an underdog full of lunacy?
+            """
+            ka "!!!"
+
+            show cg true three
+            with dissolve
+            fu """
+            Oh, why hello! Are you in awe, or in fear? Both are equally reasonable and likely reactions. 
+            
+            Please, introduce yourself and the time period you're from. It's hard keeping track these days. The timeline keeps fragmenting more and more. It's really concerning!
+            """
+
+            show cg true four 
+            with dissolve
+
+            ka "Ahem... Greetings… God? I am Kazan Syed, from the year 20XX. As for classification, I believe I am... 'an underdog full of lunacy… ?'"
+            fu """
+            Oh, modern! How fun! We always need more modern people. I'm still getting the hang of technology, and these two fossils in front of me certainly can't help.
+            
+            Anyway, you CAN call me God, but considering that you're modern, maybe you'd be more familiar with the name ‘FUCA.’ I don't really care, whatever makes you comfortable.
+            """
+            ka "FUCA... like the... ?"
+            fu """
+            YES. Exactly. It makes sense, does it not? Some people don’t get it. I guess they just haven't taken a biology class! How shameful!
+            
+            HAHA, I digress. What I mean to say is, 
+            """
+
+            scene black
+            with fade
+            fu "Welcome... to the far side of the moon."
+            "Ending: Proponents of Chaos (4/4. True Ending)"
 
         else:
             $ wrongAns = 0
-            $ question = 0
-            "yap yap"
+            scene bg basement inner 
+            show king neutral at right
+            show kazan neutral at left 
+            with fade
 
-            while wrongAns < 3 and question < 5:
-                menu:
-                    "D-do you even know enough about me for this?!"
+            ki "Greetings, I am King, a traveling storyteller! I’d like to thank you for letting me stay these past three days. I understand that I have not been the most polite houseguest."
+
+            show kazan hip annoy
+            ka """
+            ‘Not the most polite?’
+            
+            For god’s sake, you broke into my house through my window, stole the food from my fridge, and rummaged through all of my belongings! What degree of politeness is that?!
+            
+            Ahem.
+
+            Point is, I should have kicked you out the second you stepped foot into my house if I knew how much trouble you'd cause, but I unfortunately respected you too much to do that.
+            """
+
+            show king neutral happy
+            ki "Hahaha. Truly, I am sorry. Anything you may need for compensation, I am willing to pay. And I humbly thank you for your devotion to our craft!"
+            
+            show kazan neutral
+            ka "Whatever. I don't want to be responsible for freezing someone to death, anyway. Plus, I’m leaving soon."
+            show kazan up one
+            ka "But something I could get from a Proponent of Chaos… An invitation? Nay, too greedy."
+            show kazan neutral
+            ka "... A few good stories will do. Not your embellished ones, but the stories with all their mundanity attached. I have no interest in falsehoods."
+
+            show king think
+            ki """
+            Yes, yes, these are all things I can do. I am honored you take an interest in what I have to say about the past, Mr. Kazan.”
+            
+            But what would you say in having your own story written about you?
+            """
+
+            show kazan down surprise
+            ka """
+            M-me?! My mundane life?! 
+
+            What moral could you get out of my life? ‘Don’t go into a dying profession?’ That's common sense!
+            """
+
+            menu:
+                "D-do you even know enough about me for this?!"
+            
+                "You're highly technological and spend a lot of time online.":
+                    ka "Wrong."
+                    $ wrongAns += 1
+            
+                "You'd rather read books and academic papers.":
+                    ka "... Sure."
+            
+            menu: 
+                "D-do you even know enough about me for this?!"
                 
-                    "wrong":
-                        ka "Wrong."
-                        $ wrongAns += 1
+                "Your family couldn't care less about you.":
+                    ka "Wrong."
+                    $ wrongAns += 1
+
+                "You have a sister that you begrudingly love.":
+                    ka "... Sure."
+            
+            menu: 
+                "D-do you even know enough about me for this?!"
                 
-                    "right":
-                        ka "... Sure."
+                "Science is your favorite subject.":
+                    ka "Wrong."
+                    $ wrongAns += 1
+
+                "History is your favorite subject.":
+                    ka "... Sure."
+            
+            menu: 
+                "D-do you even know enough about me for this?!"
+                
+                "You're a well renowned academic author, really.":
+                    ka "Wrong."
+                    $ wrongAns += 1
+
+                "You live your entire life in obscurity.":
+                    ka "... Sure."
+            
+                    
                 #menu end
-                $ question += 1
 
-            if wrongAns == 3:
+            if wrongAns > 2:
+                show kazan hip annoy
                 ka "You know not nearly enough about me to write anything true to life. I was hoping someone of your caliber would know a little more."
                 ka "Disappointing, to say the least."
+
+                "How embarrassing! To think I've spent so much time in this cabin with nothing to show of it!"
+                show king neutral sad 
+                ki "My memory has gotten rusty, it seems… I sincerely apologize for the trouble! From the time I've spent here, you seem like a respectable and intelligent man. You deserve none of the disrespect I have given you today."
+
+                ka """
+                No… it is very much deserved.
+                
+                You may not know it, but I have borne witness to the irreparable damage of the world. And I am powerless to it. So I sit here in my cabin, writing warnings in the form of past histories to feebly spur someone to stop it.
+                """
+
+                show king neutral
+                ki """
+                Well, perhaps there is still something you can do.
+                
+                Share me the stories you find. Surely, if I am spoonfed the information, I won't mess it up, right? 
+                
+                We will spread them for you, far and wide, and in return, you'll get some payment every once in a while. Perhaps my own personal stories, perhaps some material change. Deal?
+                """
+
+                show kazan up one
+                ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
+
+                show king shrug
+                ki "“HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+
+                scene black:
+                    alpha 1.0
+                with fade
+                """
+                In the end, I didn't get the exact story I was looking for. Instead, I got many obscure tales, tallied by a lonely man in a wooden cabin.
+                
+                Kazan… despite their dour personality, they are a good, honest man. Queen and I have become good friends with him. We like to have tea and pancakes together! They're actually quite a good cook, you know?
+                
+                I can tell they have bigger ambitions, but… I'm not sure if they're ready for them yet. I don't think they even believe in themselves. 
+                
+                Perhaps, if I could go back… I’d try to find out a little bit more about them. See if they're ready for the next step. 
+                
+                But I suppose that is something I can do.
+
+                Ending: Failed Research. (1/4)
+                """
+            
             else: 
                 ka "... Fine. I suppose you know enough to write something decent."
                 ka "But… my life until now…"
                 ka "Are you sure I’ve done enough for a proper conclusion? Is writing obscure papers REALLY the ending you want for my mess of a story?"
 
-        "this runs when the corresponding segment is over"
+                show king neutral
+                ki "Well, how would you want it to end?"
+
+                show kazan neutral
+                ka "Obviously, I’d fix all of my mistakes. Or at least, get someone to clean it up for me. Shoot that woman, maybe?"
+                ka "Ha... but that didn't go well for me. Killed the spirits in everyone in my family. "
+                show kazan hip annoy
+                ka "So, I don't know. You're the creative one. Go figure.
+
+                show king back happy
+                ki """
+                That's how we want all of our stories to end, isn't it? But it seems you have bigger ambitions. You have the capability to make a hopeful note, you just have to push through the doubt.
+                
+                No good story is without its conflict, after all.
+                
+                Tell you what; I'll make it an open, but happy ending, so it's up to interpretation. But I still need some real-life inspiration. So I have a deal!
+                
+                Share me the stories you find as a historian. And I'll share them with the bigger world.
+                """
+
+                show kazan up one
+                ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
+
+                show king shrug
+                ki "“HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+
+                scene black:
+                    alpha 1.0
+                with fade
+
+                "In the end,"
+
+                if itemsFound == 1:
+                    "I actually had to take lots of creative liberties. I didn't gather as much information as I thought. I got a big mouthful from Kazan afterwards, who came to see our performance. Hehe."
+                elif itemsFound == 2:
+                    "The story ended up quite imaginative. I think Kazan, who came to see our performance, was a little disappointed, but he didn't fuss too much. I suppose it was as truthful as any good fairytale."
+                elif itemsFound == 3:
+                    "The story was a big hit, although I had to fill in some gaps here and there. Kazan, who came to see our performance, found it serviceable. Considering their hard expectations, I’d consider that a great success!"
+                else: 
+                    "The story was a great hit! People seemed to find its more grounded and realistic nature an interesting and engaging departure from our regular material, and so listened even deeper than usual! Hehe, and Kazan, who came to see our performance, seemed to like it, too."
+                """
+                I think this story will stay a staple in our library from now on. A very worthwhile expedition in the woods! 
+                
+                As for our titular protagonist, Queen and I have become quite good friends with them. They have a different demeanor these days, as if they've gained a little hope. Perhaps a friend or two was what they needed in that lonely cabin of theirs.
+                
+                In reading their works, sometimes I wonder about my own history. I have my own long story, too. Is there something I can bring to light, too?
+                
+                But I suppose… I could try and ask my friend to find out.
+
+                Ending: Storytelling with a Friend. (2/4)
+                """
+
         return
     
     label hall:
@@ -497,6 +819,7 @@ label start:
         with dissolve
         ki "You act like you're in the right, but it doesn't seem like you believe in yourself, either. Just who are you trying to prove yourself to?"
         $ one = (int)(combo / 1000)
+        $ itemsFound += 1
         "Inside one letter is a strange code: 1 - [one]"
 
         jump loop
@@ -571,6 +894,7 @@ label start:
         hide kazan
         hide black
         $ third = (int)((combo % 100) / 10)
+        $ itemsFound += 1
 
         "At the end of the journal, there is a strange code: 3 - [third]"
         #i think that's how you do this i forgot
@@ -656,6 +980,7 @@ label start:
         """
 
         $ fourth = (int)((combo % 10))
+        $ itemsFound += 1
 
         "On the back of the envelope is a strange code: 4 - [fourth]"
 
@@ -885,6 +1210,7 @@ label start:
 
         ki "Underneath escapism, there lies the root of problems."
         $ second = (int)((combo % 1000) / 100)
+        $ itemsFound += 1
         "On the back of the letter is a strange code: 2 - [second]"
 
 
