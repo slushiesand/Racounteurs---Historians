@@ -389,7 +389,25 @@ label start:
         ka "... Hi."        
                 
         if itemsFound == 4 and manuscript == 3:
-            "true ending"
+            ki "Greetings, I am King, a traveling storyteller! … But perhaps… "
+            ki "... You'd know me better as Eilhart."
+
+            scene bg basement inner
+            show kazan down surprise at left 
+            show king neutral at right
+            with fade
+
+            ka "Y-YOU’RE EILHART?!"
+            show kazan up one
+            ka "Holy gods… it… it all makes sense! Why you guys always talk about the plague, why your hands look the way they do…"
+            ka "Is my theory right? Are all those praising God during disastrous times a part of the Proponents of Chaos?"
+
+            show king neutral happy
+            ki "Hahaha! Calm down, calm down my friend. We have infinite time to speak. I've lived quite a long time, as you must know!"
+
+            show kazan hip annoy
+            ka "Ahem. I'm sorry, sir. Please excuse me. I'm just a humble historian interested in your history."
+
         else:
             $ wrongAns = 0
             $ question = 0
@@ -420,7 +438,67 @@ label start:
         return
     
     label hall:
-        "1"
+        scene bg hallway
+        with fade
+            
+        """
+        Hallways… the liminal space between one important moment and the next. But perhaps in its unimportance, something eye-opening will be left on the shelf. 
+
+        … Of course, boring things can be left, too.
+        """
+        show king back annoy
+        with dissolve
+        ki "The Historical Journal? Historische Zeitschrift? My, my. How sophisticated." 
+        """
+        Not my favorite literature.
+        
+        There seems to be some academic journals on the wall, as well.
+        """
+        show king neutral
+        ki "Charta Slavica? Hm... never heard of that one!"
+        show king think
+        ki """
+        Er… I’m not the best at reading Russian, nevermind high-level language like this. But I think the title is… ‘The Effect of Old World Diseases on Modern History’ by Kazan Syed.
+        
+        There's also a note tucked behind here...
+        """
+            
+        hide king
+        show black:
+            alpha .5
+        show kazan up one
+        with dissolve
+
+        ka """
+        I finally got something published. Not the so-called publishing of selling papers at your doorstep – No! This is a real paper, with real experts reading my paper!
+        
+        Hahahaha! I know, it's no Historian, but it proves my writing is not as worthless as everyone makes it out to be. Nay, it has to be valuable in some way.
+        """
+        show kazan hip annoy
+        ka "Disease is a little overdone these days. Should I go nicher? Ahh, but to establish myself, I should probably do a follow up…"
+        show kazan up two
+        ka "No matter. One day… I will be all over the newspapers, and everyone will have to admit they were wrong. Wrong about me. Wrong about everything."
+        show kazan down trauma
+        ka "You’re All. The. SAME."
+
+        hide kazan
+        hide black
+        with dissolve
+
+        """
+        A few more papers behind the framed pictures slip out. Fancy letters with wax seals and aged paper.
+        
+        Rejection. Rejection. Rejection. It seems he wasn't as lucky with these.
+        
+        Some of them even have scribbled pen on them. How vindictive.
+        """
+
+        show king back annoy
+        with dissolve
+        ki "You act like you're in the right, but it doesn't seem like you believe in yourself, either. Just who are you trying to prove yourself to?"
+        $ one = (int)(combo / 1000)
+        "Inside one letter is a strange code: 1 - [one]"
+
         jump loop
 
     label study:
@@ -528,7 +606,7 @@ label start:
 
         show kazan hip annoy
         with fade
-        """
+        ka """
         Logic and emotion dance,
         
         It is gunpowder that allows wars of power to be fought.
@@ -560,7 +638,7 @@ label start:
         No wonder no one here has a reflection.
         """
         show kazan down trauma #do you like my naming....
-        "I am the only one who deserves to have met you."
+        ka "I am the only one who deserves to have met you."
 
         hide kazan
         hide black
@@ -577,7 +655,7 @@ label start:
         Certainly a good find.
         """
 
-        $ fourth = (int)((combo % 1000))
+        $ fourth = (int)((combo % 10))
 
         "On the back of the envelope is a strange code: 4 - [fourth]"
 
@@ -590,13 +668,14 @@ label start:
         "The living room is cozy and classy: a leather loveseat is flanked by a recliner and a coffee table, and a fireplace houses a modest television. A good place to brainstorm your next story, or cuddle up with a loved one."
         
         show king back annoy
+        with dissolve
         "I walk up to the fireplace and hover my hand over the ashes. There's still some residual heat. I should keep my guard up."
         show king neutral
         "Nevertheless, there is work to be done. I sit down on the couch and inspect the table."
         hide king
         with dissolve
         """
-        Loose papers and an empty coffee mug surround a thick, black notebook simply labeled “Myths.”
+        Loose papers and an empty coffee mug surround a thick, black notebook simply labeled 'Myths.'
         
         The notebook seems to be a chronology of folktales told by yours truly, each with dates of origin and historical notes about their context and accuracy. Not a single page has a margin of space remaining.
         """
@@ -620,7 +699,7 @@ label start:
         
         Suddenly, I spot a paper underneath the table. It must have been knocked under there the first day…
         """
-        call manu
+        jump manu
 
         jump loop
 
@@ -641,7 +720,7 @@ label start:
         
         Hold on. This one isn't a tax document at all… 
         """
-        call manu
+        jump manu
 
         jump loop
 
@@ -677,11 +756,14 @@ label start:
         """
         ki "I'm quite fond of Germany, myself!"
         "But there is a manuscript..."
-        call manu
+        jump manu
 
         jump loop
 
     label bath:
+        scene bg bathroom
+        with fade
+
         """
         I’m not expecting to find much in the bathroom. At best, I'm seeing if the plumbing still works in this freezing weather.
         
@@ -698,7 +780,7 @@ label start:
         If you don't have a reflection, well...
         """
         show king shrug
-        "You're just too vile a person to change."
+        ki "You're just too vile a person to change."
 
         jump loop
 
@@ -744,9 +826,13 @@ label start:
         m """
         Dear Kazan,
 
-        We found a few manuscripts in your old room, so we've sent it along with this letter. We've also sent some new laboratory internships. We haven't told the university your new address, so they're still being sent here.
+        We found a few manuscripts in your old room, so we've sent it along with this letter. We've also sent some new laboratory internships. 
         
-        We all know you're good at writing, so writing some reports for this lab would do some great work for the world. Your girlfriend has told us your historical work is great for background knowledge, but I think you have the interests for science, too! 
+        We haven't told the university your new address, so they're still being sent here.
+        
+        We all know you're good at writing, so writing some reports for this lab would do some great work for the world. 
+        
+        Your girlfriend has told us your historical work is great for background knowledge, but I think you have the interests for science, too! 
         
         Of course, we're happy with whatever you do. 
 
@@ -755,16 +841,16 @@ label start:
 
         show kazan neutral
         with dissolve
-        ka "You say that, but send me internships for work outside my field anyway."
+        ka "You say that, but continue send me internships for work outside my field."
         show kazan down surprise
-        ka "... Why is my girlfriend talking to my parents behind my back?"
+        ka "... Why is my girlfriend talking to my parents behind my back anyway?"
         hide kazan
         with dissolve
 
         s """
         Dear Kazan,
         
-        The situation at the university got out to the family. I'm... sorry. 
+        The situation at the university got out to the family. I'm sorry. 
         
         I tell you to believe in others a lot, but… I think this is my fault this time.
         
@@ -776,13 +862,37 @@ label start:
         """
 
         show kazan down trauma
-        ka "I'm doing {=strikethrough} terrible?"
+        with dissolve
+        ka "I'm doing terrible?--"
+        show kazan up two
+        ka "I'm doing fine. Thank you for your concern."
+        show kazan down surprise
+        ka "Forget about her, okay? She's bad news. Don't trust anything about her. And tell mom and dad to stop contacting me--"
+        ka "I don't know. It's not their fault. It's all her fault. and, and……"
+        show kazan hip annoy
+        ka "Ugh. Screw this letter. Screw all of this."
+        show kazan down trauma
+        ka "Don't trust the university. Don't trust her. Don't trust anyone."
+        ka "Are you after me to o????"
+        ka "..."
+        show kazan hip annoy
+        ka "I'm sorry I'm this way."
+        ka "Don't blame yourself. But it's better for your future if you forget about me, too."
+
+        hide kazan
+        hide black 
+        with dissolve
+
+        ki "Underneath escapism, there lies the root of problems."
+        $ second = (int)((combo % 1000) / 100)
+        "On the back of the letter is a strange code: 2 - [second]"
+
 
         jump loop
 
     label manu:
     #btw use call with these   
-        stop music fadeout 
+        stop music fadeout 1.0
         if manuscript == 1:
             show black:
                 alpha .5
@@ -802,7 +912,8 @@ label start:
             These pandemics are categorized as "disaster times" by historians, meaning there is a higher occurrence of individuals who claim to have met God (or at least, a god).
             """
             show kazan neutral smile
-            """
+            with dissolve
+            ka """
             Of course, these individuals may be acting in hysteria due to the severity of their situations, but more well documented accounts leads me to believe that these individuals may have been recruited to the Proponents of Chaos.
             
             A particular well documented story from the time follows two children who appeared to be resurrected after their deaths from the plague...
@@ -817,7 +928,7 @@ label start:
             ki """
             ... I suppose we do talk about the plague a lot. But you can't fault me for not including the mundane parts. 
             
-            You've ended this boring manuscript with a cliffhanger for the most exciting part!"  
+            You've ended this boring manuscript with a cliffhanger for the most exciting part!  
             
             This page is from a few weeks ago. I wonder if there are other pages lying around.
             """
@@ -838,7 +949,7 @@ label start:
             Thus, the two were advised to keep themselves occupied with their official traditions, much to their discontent.
             """
             show kazan hip annoy
-            """
+            ka """
             However, the line between 'Higher' and 'Lower' disappeared with the onset of the plague. 
             
             Eventually, both the noble and common sick were laid on the floor in rows like a mass burial in progress. 
@@ -889,7 +1000,7 @@ label start:
             """
 
             show kazan neutral smile
-            """
+            ka """
             After the death of the local nobility, the church took control of the town. They had little clue how to lead a town outside of a religious setting, but they managed to stay afloat using the old nobility’s funds. 
             
             A small religious holiday was established, turnout to the church doubled, and many young men and women started studying scripture to decipher what the existence of their new prophets meant. 
@@ -926,6 +1037,8 @@ label start:
             "I'm glad we were remembered."
         
         $ manuscript += 1
+
+        jump loop
     
     "IF YOU'RE SEEING THIS in game SOMETHING WENT WRONG PLEASE REPORT THANKS - slushie"
     return
