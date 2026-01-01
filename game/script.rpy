@@ -519,6 +519,7 @@ label start:
 
             scene cg true one 
             with fade
+            play music "audio/Trio for Piano Violin and Viola.mp3" fadein 1.0
 
             ki "Knock, knock. I've got a new member to introduce to you."
             ka "ohmygodohmygod HOW THE HELL AM I BREATHING?"
