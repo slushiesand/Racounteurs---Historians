@@ -599,7 +599,7 @@ label start:
 
             show king think
             ki """
-            Yes, yes, these are all things I can do. I am honored you take an interest in what I have to say about the past, Mr. Kazan.”
+            Yes, yes, these are all things I can do. I am honored you take an interest in what I have to say about the past, Mr. Kazan.
             
             But what would you say in having your own story written about you?
             """
@@ -661,13 +661,16 @@ label start:
 
                 "How embarrassing! To think I've spent so much time in this cabin with nothing to show of it!"
                 show king neutral sad 
-                ki "My memory has gotten rusty, it seems… I sincerely apologize for the trouble! From the time I've spent here, you seem like a respectable and intelligent man. You deserve none of the disrespect I have given you today."
+                ki "My memory has gotten rusty, it seems… I sincerely apologize for the trouble! From the time I've spent here, you seem like a respectable and intelligent man."
+                ki "You deserve none of the disrespect I have given you today."
 
                 ka """
                 No… it is very much deserved.
                 
-                You may not know it, but I have borne witness to the irreparable damage of the world. And I am powerless to it. So I sit here in my cabin, writing warnings in the form of past histories to feebly spur someone to stop it.
+                You may not know it, but I have borne witness to the irreparable damage of the world. And I am powerless to it. 
                 """
+                show kazan up two
+                ka "So I sit here in my cabin, writing warnings in the form of past histories to feebly spur someone to stop it."
 
                 show king neutral
                 ki """
@@ -682,7 +685,7 @@ label start:
                 ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
 
                 show king shrug
-                ki "“HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+                ki "HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
 
                 scene black:
                     alpha 1.0
@@ -730,7 +733,7 @@ label start:
                 ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
 
                 show king shrug
-                ki "“HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+                ki "HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
 
                 scene black:
                     alpha 1.0
@@ -904,6 +907,7 @@ label start:
     
     label storage:
         scene bg storage
+        with fade
         "A storage room may be a good call for stores and such. All types of things can be housed here: important ones, forgotten ones; loved ones and hated ones. And yet, it must all hold some significance if it hasn't been thrown away yet."
         "Unfortunately, this room is even more messy than the rest of the house."
         show king back annoy
@@ -1219,7 +1223,7 @@ label start:
 
     label manu:  
         play music "audio/Trio for Piano Violin and Viola.mp3" fadein 1.0
-        if manuscript == 1:
+        if manuscript == 0:
             show black:
                 alpha .5
             show kazan neutral
@@ -1259,7 +1263,7 @@ label start:
             This page is from a few weeks ago. I wonder if there are other pages lying around.
             """
 
-        elif manuscript == 2:
+        elif manuscript == 1:
             show black:
                 alpha .5
             show kazan neutral
