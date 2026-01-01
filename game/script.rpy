@@ -48,12 +48,13 @@ define ki = Character("King", color = "#FDCA62")
 define ka = Character("Kazan", color="#A6E1FE")
 
 define qu = Character("Queen", color="#5077CA")
-define fu = Character("???", color="#F")
-define s = Character("Sister", color="#F")
-define m = Character("Mother", color="#F")
+define fu = Character("???", color="#FFF")
+define s = Character("Sister", color="#FFF")
+define m = Character("Mother", color="#FFF")
 
-image top_text = ParameterizedText(xalign=0.5, yalign=0.0)
 image black = "#000"
+#image darkener = Frame(Solid("#000"))
+
 
 # lowkey forgot everything we are relying on the documentation 100%
 
@@ -98,7 +99,7 @@ label start:
     
     "Queen… always trying to comfort me, even if he doesn't smile much himself… and always more patient about life than I."
     
-    show cg inn happy
+    show cg inn idea
     with vpunch
 
     ki "YES! That's what I'll do! Thank you, my dear partner! I'll come back with results, surely!"
@@ -129,12 +130,12 @@ label start:
     
     In fact, everything seems to be flattened to one single surface of pure snow, with trees serving as the only points of interest on this coordinate plane.
     """
-    show king think frown at right
+    show king think at right
     "Nevertheless, there's probably something interesting out there, so I continue on."
     
 
     scene bg forest2
-    show king neutral frown at right
+    show king neutral sad at right
     with wipeleft
 
     """
@@ -194,7 +195,7 @@ label start:
 
     """
 
-    show king neutral sad
+    show king back sad
 
     ki "Oof..."
 
@@ -204,7 +205,7 @@ label start:
     More importantly, no alarm systems go off. I might not die for trespassing!
     """
 
-    show king neutral happy
+    show king back happy
 
     """
     I leave some money on the table as a gesture of good will, and scuttle to find somewhere to hide for the night. 
@@ -215,7 +216,7 @@ label start:
     """
 
     #ideally walking sound goes here
-    show king neutral
+    show king think
     ki "... Ah-hah."
     "Just what I wanted."
     ki "Alright, get comfy, me. It's going to be a long night."
@@ -242,7 +243,7 @@ label start:
     show king neutral happy
     with dissolve
     ki "Oh my! How unfortunate! Or rather… how fortunate!"
-    show king neutral ecstatic
+    show king shrug
     with vpunch
     ki "A writer trapped in an empty cabin for who-knows-how-long? That's just SCREAMING for a good story to be found!"
     show king neutral happy
@@ -259,15 +260,19 @@ label start:
 
             if timeCounter == 0:
                 if daysLeft == 3:
+                    show king think
                     ki "I suppose I should eat something. Let's see what's in my bag…"
+                    show king neutral happy
                     ki "Some granola bars and a bottle of water. Surprised this didn't freeze over. Sure, that'll do for today. Let's not rob the fridge just yet!"
                 elif daysLeft == 2:
                     ki "I said I wasn't gonna rob the fridge yesterday, but that doesn't account for today. Hopefully, none of this is expired…"
+                    show king think
                     ki "Huh. The fridge seems to be working. Did a backup generator go off? I should still go with something with a long shelf-life to be safe, though."
                     show king neutral happy
                     ki "Let’s see… a jar of preserved fruit jelly. I saw some bread on the counter, as well. Hehe, a good breakfast for me today!"
                 else: 
                     ki "The fridge served me well last time. Let's see…"
+                    show king back sad
                     ki "... Some pancakes seem to have appeared overnight. They’re a bit charred at the edges, but charming enough."
                     menu:
                         "Should I eat them?"
@@ -278,7 +283,7 @@ label start:
                             $ pass
                 
                     ki "Luckily, I still have some jam from yesterday."
-                    show king neutral annoy
+                    show king back annoy
                     ki "Now that I think about it… I should probably pay for this too…"
             elif timeCounter == 4:
                 $ daysLeft -= 1
@@ -352,7 +357,9 @@ label start:
     return
         
     label basement:
-            
+            scene bg basement
+            with fade
+
             while True:
                 menu:
                     "The basement is quite barren and boring, except for a door that requires an numeric password. Enter something?"
@@ -369,7 +376,47 @@ label start:
                         ki "Hm... I don't feel ready yet. I will come back later."
                         jump loop
     label ending:
-        "oh fart you did it"
+        scene black
+        with fade
+        stop music fadeout 1.0
+        "The door opens slowly, pouring light into the basement below, and on…"
+                
+        scene cg kazan
+        with Fade(1.0, 0, 1.0)
+                
+        ka "..."
+        ki "So you are here after all."
+        ka "... Hi."        
+                
+        if itemsFound == 4 and manuscript == 3:
+            "true ending"
+        else:
+            $ wrongAns = 0
+            $ question = 0
+            "yap yap"
+
+            while wrongAns < 3 and question < 5:
+                menu:
+                    "D-do you even know enough about me for this?!"
+                
+                    "wrong":
+                        ka "Wrong."
+                        $ wrongAns += 1
+                
+                    "right":
+                        ka "... Sure."
+                #menu end
+                $ question += 1
+
+            if wrongAns == 3:
+                ka "You know not nearly enough about me to write anything true to life. I was hoping someone of your caliber would know a little more."
+                ka "Disappointing, to say the least."
+            else: 
+                ka "... Fine. I suppose you know enough to write something decent."
+                ka "But… my life until now…"
+                ka "Are you sure I’ve done enough for a proper conclusion? Is writing obscure papers REALLY the ending you want for my mess of a story?"
+
+        "this runs when the corresponding segment is over"
         return
     
     label hall:
@@ -377,19 +424,161 @@ label start:
         jump loop
 
     label study:
-        "2"
+        scene bg study
+        with fade
+
+        "For the working individual, a study is where the mundane yet important documents are stored. As a bonus, you can create the feeling of being an intellectual by decorating like you're a Victorian."
+        "That seems to be the direction of this room, doused in earthy tones. Although, I suppose this is a cabin, so maybe that's the point. "
+        "An elaborate writing desk sits on the right side of the room. A large lamp looms over stacks of research papers and stationary. I glance over the papers, but most seem unfinished with aggravated babbles detailing how terrible they are."
+        show king neutral happy
+        with dissolve
+        ki "Still, the material itself is interesting. Can't say I've studied much about BCE India myself!"
+        "I pick up some papers for my own use, but see an article whose title alarms me."
+        "‘The Art of Time Travel’ by Serena ■■■■."
+        show king back annoy
+        ki "..."
+        "I snatch that up, as well. I really thought we got rid of all of those."
         jump loop
 
     label kitchen:
-        "3"
+        "I’m still kind of hungry, so I decide to look around the kitchen some more."
+        show king think
+        ki "Is there any fruit here... ?"
+        "It's been a bit since I've had some fresh produce. It's winter, after all. But maybe there's still some sort of dried fruit."
+        "Chips, stale chocolate… a big piece of sugarcane? Interesting, certainly, but I don't think I have the capacity to chew that."
+        show king neutral sad
+        "... What kind of diet is this?"
+        "...There's a lot of coffee beans inside this cabinet. Light, dark, artisanal… oh, and some teas, too!"
+        show king neutral happy
+        "Eventually, I find some fruit-flavored biscuits. Hehe, these will do nicely! Thank you, my strange-appetite friend!"
         jump loop
 
     label bedroom:
-        "4"
+        scene bg bedroom
+        with fade
+
+        "The master bedroom is surprisingly informal. A double bed is cushioned with thick pillows and a well-worn quilt, and a fluffy carpet sits below adorned with yet more pillows and blankets. I suppose even an intellectual needs to stay warm, too."
+        "Beneath a conspicuous pile of pillows, I find a journal of some kind…"
+
+        show black:
+            alpha .5
+        with dissolve
+        show kazan neutral smile
+        with dissolve
+
+        ka "I enjoy reading philosophy a bit, but I've never tried writing anything introspective myself. The publishers always tell me I can get a bit off topic in my writing, so maybe trying some different genres will help me solidify my informational writing."
+        show kazan hip annoy
+        ka "Here goes:"
+        hide kazan
+        with dissolve
+        ka """
+        Sonder is an interesting concept. It is the feeling when you realize others have a life that is as complex as yours. 
+        
+        Your friends, your family, the strangers you see on the street. They, too, plan their next dinner while spacing out in the shower, put their colored and white clothes in the same wash cycle, and break friendships over an impulsive word. It happens to everyone, everywhere. 
+        
+        The people from the past had a life as full as the people now, and the people in the future. History is interesting in that way: how did the people in the future have so different resources, yet die as fulfilled – or even as empty – as the people of today? 
+        
+        However, media is finite. No amount of hieroglyphics, Latin, or Cyrillic can depict that infinite complexity. No one is going to write down the joy of smelling fresh clothes, or the dismay of getting mud on your freshly cleaned carpet. 
+        
+        Memory, too, is finite. People don't remember their childhoods, or even what they ate the day before.
+        
+        And yet, people strive to learn everything about the past, about each other, to create some sort of understanding. Some empathy within themselves. 
+        
+        We are alone. But we find ourselves in history.
+        """
+        show kazan hip smile
+        with dissolve
+        ka "... I think it turned out more like a manifesto. That's fine, I guess. I still kind of like it."
+
+        hide kazan
+        hide black
+        $ third = c
+
+        "At the end of the journal, there is a strange code: 3 - [third]"
+        #i think that's how you do this i forgot
+        
         jump loop
     
     label storage:
-        "5"
+        scene bg storage
+        "A storage room may be a good call for stores and such. All types of things can be housed here: important ones, forgotten ones; loved ones and hated ones. And yet, it must all hold some significance if it hasn't been thrown away yet."
+        "Unfortunately, this room is even more messy than the rest of the house."
+        show king back annoy
+        ki "How do people live like this?"
+        "Even I don't have time for this nonsense. Let's just pick the most obscure looking box and hope the atoms smile upon me."
+        hide king
+        with dissolve
+        "I climb over a few boxes, careful not to knock anything over, and pick up a manilla envelope."
+        "It's over ten years old. It reads: 'University Poetry Collection.'"
+
+        show black:
+            alpha .5
+        show kazan neutral smile
+        with dissolve
+        ka """
+        The one with the pearl and purple hair,
+        
+        O’ my friend,
+        
+        The maddening glare,
+
+        As science ought to do with souls like ours.
+        
+        """
+
+        show kazan hip annoy
+        with fade
+        """
+        Logic and emotion dance,
+        
+        It is gunpowder that allows wars of power to be fought.
+        
+        Is love, too, a war?
+        
+        Of restraint and brilliance? 
+        
+        Atoms make up bodies
+        
+        Make up neurons to think
+        
+        ‘I hold you in the highest regard.'
+        """
+        hide kazan
+        with dissolve
+
+        "This last one... isn't much like a poem at all."
+        show kazan down surprise
+        with fade
+        ka "Haven't you taken my research into account? The historical losses! The studies into how it affects people mentally!"
+        ka "It's supposed to be a warning, not an example! Do you even care at all????"
+        show kazan up two
+        ka """
+        No. You were never sympathetic in the first place. I should have known by the way your smile never reaches your eyes.
+
+        You just wanted to see how far you could go. And this place just lets you. You both are…
+        
+        No wonder no one here has a reflection.
+        """
+        show kazan down trauma #do you like my naming....
+        "I am the only one who deserves to have met you."
+
+        hide kazan
+        hide black
+        show king think
+        with dissolve
+
+        ki "Is this saying... an entire university has no reflection?"
+        show king shrug
+        ki """
+        Hahahha. How interesting.
+
+        And this person they were once enamored with...
+
+        Certainly a good find.
+        """
+
+        $ fourth = 
+
         jump loop
 
     label living:
@@ -422,4 +611,3 @@ label start:
     
     "IF YOU'RE SEEING THIS in game SOMETHING WENT WRONG PLEASE REPORT THANKS - slushie"
     return
-

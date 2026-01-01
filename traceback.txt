@@ -1,30 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 287, in script
-    python:
-  File "game/script.rpy", line 296, in <module>
-    if unavailable.len() >= 11:
-       ^^^^^^^^^^^^^^^         
-AttributeError: 'RevertableList' object has no attribute 'len'
+  File "game/script.rpy", line 56, in script
+    image darkener = im.Alpha(Solid("#000"), 0.5)
+  File "game/script.rpy", line 56, in <module>
+    image darkener = im.Alpha(Solid("#000"), 0.5)
+                     ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+Exception: Expected an image, but got a general displayable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 287, in script
-    python:
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1273, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 296, in <module>
-    if unavailable.len() >= 11:
-       ^^^^^^^^^^^^^^^         
-AttributeError: 'RevertableList' object has no attribute 'len'
+  File "game/script.rpy", line 56, in script
+    image darkener = im.Alpha(Solid("#000"), 0.5)
+  File "renpy/ast.py", line 1273, in execute
+    img = renpy.python.py_eval_bytecode(self.code.bytecode)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1298, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 56, in <module>
+    image darkener = im.Alpha(Solid("#000"), 0.5)
+                     ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/im.py", line 2177, in Alpha
+    return Recolor(image, 255, 255, 255, int(255 * alpha), force_alpha=True, **properties)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/im.py", line 1611, in __init__
+    im = image(im)
+         ~~~~~^^^^
+  File "renpy/display/im.py", line 1036, in image
+    raise Exception("Expected an image, but got a general displayable.")
+Exception: Expected an image, but got a general displayable.
 
 Windows-11-10.0.26100-SP0 AMD64
 Ren'Py 8.5.0.25111603
 Raconteurs & Historians 1.0
-Sun Dec 28 00:31:04 2025
+Wed Dec 31 18:54:12 2025

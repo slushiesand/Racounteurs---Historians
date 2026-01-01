@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 319: Indentation mismatch.
-    "No":
+File "game/script.rpy", line 59: expected 'simple_expression' not found.
+    alpha
+          ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Sat Dec 27 23:01:46 2025
+Wed Dec 31 18:57:50 2025
