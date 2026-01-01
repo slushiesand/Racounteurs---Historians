@@ -1216,9 +1216,8 @@ label start:
 
         jump loop
 
-    label manu:
-    #btw use call with these   
-        stop music fadeout 1.0
+    label manu:  
+        play music "audio/Trio for Piano Violin and Viola.mp3" fadein 1.0
         if manuscript == 1:
             show black:
                 alpha .5
