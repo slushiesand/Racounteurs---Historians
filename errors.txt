@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 785: expected simple expression
-    stop music fadeout
-                       ^
+File "game/script.rpy", line 351: expected 'simple_expression' not found.
+    alpha: 1.0
+         ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Wed Dec 31 20:33:56 2025
+Thu Jan  1 00:51:30 2026

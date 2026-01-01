@@ -348,7 +348,7 @@ label start:
     #loop end here
     # dev menu: shirt + d; console: shift + o
     scene black:
-            alpha: 1.0
+            alpha 1.0
     with fade
 
     "In the end, I left the cabin after three days, no homeowner in sight. As for the story I made…"
@@ -712,7 +712,7 @@ label start:
                 ka "Obviously, I’d fix all of my mistakes. Or at least, get someone to clean it up for me. Shoot that woman, maybe?"
                 ka "Ha... but that didn't go well for me. Killed the spirits in everyone in my family. "
                 show kazan hip annoy
-                ka "So, I don't know. You're the creative one. Go figure.
+                ka "So, I don't know. You're the creative one. Go figure."
 
                 show king back happy
                 ki """
