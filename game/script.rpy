@@ -492,7 +492,7 @@ label start:
 
         hide kazan
         hide black
-        $ third = c
+        $ third = (int)((combo % 100) / 10)
 
         "At the end of the journal, there is a strange code: 3 - [third]"
         #i think that's how you do this i forgot
@@ -577,37 +577,355 @@ label start:
         Certainly a good find.
         """
 
-        $ fourth = 
+        $ fourth = (int)((combo % 1000))
+
+        "On the back of the envelope is a strange code: 4 - [fourth]"
 
         jump loop
 
     label living:
-        "6"
+        scene bg living
+        with fade
+
+        "The living room is cozy and classy: a leather loveseat is flanked by a recliner and a coffee table, and a fireplace houses a modest television. A good place to brainstorm your next story, or cuddle up with a loved one."
+        
+        show king back annoy
+        "I walk up to the fireplace and hover my hand over the ashes. There's still some residual heat. I should keep my guard up."
+        show king neutral
+        "Nevertheless, there is work to be done. I sit down on the couch and inspect the table."
+        hide king
+        with dissolve
+        """
+        Loose papers and an empty coffee mug surround a thick, black notebook simply labeled “Myths.”
+        
+        The notebook seems to be a chronology of folktales told by yours truly, each with dates of origin and historical notes about their context and accuracy. Not a single page has a margin of space remaining.
+        """
+        show king neutral happy
+        with dissolve
+        ki "Oh my, is this the house of a fan? How flattering! I think I'm blushing!"
+        "I wonder if the owner of this house was at our last performance?"
+
         jump loop
 
     label dining:
-        "7"
+        scene bg dining
+        with fade
+
+        """
+        I pick up a broom and dust pan and clean up the glass. Although my boots are thick, I don't want to step on this stuff too much. Oh, and I suppose I should assure the homeowner doesn't get hurt, either. 
+        
+        Unfortunately, there's not much I can do about the water melting from the snow in the window. I guess I just have to be careful when stepping around here.
+        
+        While I sweep, I take a look around the dining room. Really, it's not much of an individual room at all. It's an open plan with the kitchen and living room. 
+        
+        Suddenly, I spot a paper underneath the table. It must have been knocked under there the first day…
+        """
+        call manu
+
         jump loop
 
     label laundry:
-        "8"
+        scene bg laundry
+        with fade
+
+        """
+        Now that I think about it, I don't quite remember the last time I've done my laundry.
+        
+        Gross, I know, but I think I lost my ability to sweat a long time ago. Not sure about other odors, though.
+        
+        Still, it seems rude to use this person’s water bill. I’m fine with stealing food, but I draw the line at paying taxes.
+        
+        Speaking of, there seems to be some taxes on top of the laundry machine.
+        
+        … Seems like one of these is a little late. No good, my friend.
+        
+        Hold on. This one isn't a tax document at all… 
+        """
+        call manu
+
         jump loop
 
     label guest:
-        "9"
+        scene bg guest
+        with fade
+
+        "I open the door to an eerily blank guest bedroom."
+        show king think
+        with dissolve
+
+        """
+        Unlike the rest of the house, this room is devoid of any personality. There's not even any clutter; it's like this room has never been stepped into at all. 
+        
+        It's quiet. 
+        
+        I open the wardrobe for any clue of belongings. Nothing at all.
+        
+        Nothing… except a single pearl earring.
+        """
         jump loop
 
     label computer:
-        "10"
+        scene bg computer
+        with fade
+
+        """
+        I have to admit, I am not very tech savvy. I'm just more magic-inclined than technology-inclined. 
+        
+        It seems this person is the same way, judging by their machinery: A chunky computer chugging with a similarly archaic keyboard. 
+        
+        I try to log in, but the computer is password protected. No notepads nearby give me any clue of a login, either; only endless research notes about plagues, churches, and… German translation?
+        """
+        ki "I'm quite fond of Germany, myself!"
+        "But there is a manuscript..."
+        call manu
+
         jump loop
 
     label bath:
-        "11"
+        """
+        I’m not expecting to find much in the bathroom. At best, I'm seeing if the plumbing still works in this freezing weather.
+        
+        But I find something much more interesting than that.
+        """
+        show king think
+        ki "A blocked off mirror, hm?"
+        """
+        
+        If you find an obscured mirror in a home, they say, it indicates that the homeowner has interpersonal issues they don't want to face.
+        
+        A reflection isn't just simple science, you see; It's another version of you whose job is to peer into you and keep you sane.
+        
+        If you don't have a reflection, well...
+        """
+        show king shrug
+        "You're just too vile a person to change."
+
         jump loop
 
     label library:
-        "12"
+        scene bg library
+        with fade
+
+        "Bookshelves overflow with annotated novels and broken spines and line the walls like a dust jacket. You can almost hear the silverfish just looking at the scene."
+        "Clearly, whoever lives here isn't faking their affinity for books."
+        show king back annoy
+        with dissolve
+        """
+        I comb through some of the titles on the shelves: Crime and Punishment, No Longer Human, The Plague. Thought-provoking classics.
+        
+        There are lots of nonfiction titles, as well, mostly consisting of textbooks and secondhand histories. 
+        
+        Atop one pile of books sit a few letters with annotations.
+        """
+
+        hide king
+        show black:
+            alpha .5
+        with dissolve
+
+        s """
+        Dear Kazan,
+       
+        I heard the cabin got finished, so I decided to send this letter to test your address out! If you got it, congrats! If this is someone else, give this letter back to my brother!
+        
+        I hope you don't use this as an excuse to hole yourself into your studies even more. I don't really get it; why would you graduate, THEN go back to school?
+        
+        But I guess if I lived in basically-a-library, I’d read a bunch of books, too. Fiction, obviously! You should at least read outside, though. Get a porch or something, nerd.
+        
+        Love, Sister.
+        """
+
+        show kazan hip annoy
+        with dissolve
+        ka "Ugh, so annoying. I'll read whatever I want. Who told this brat my address?"
+        hide kazan
+        with dissolve
+
+        m """
+        Dear Kazan,
+
+        We found a few manuscripts in your old room, so we've sent it along with this letter. We've also sent some new laboratory internships. We haven't told the university your new address, so they're still being sent here.
+        
+        We all know you're good at writing, so writing some reports for this lab would do some great work for the world. Your girlfriend has told us your historical work is great for background knowledge, but I think you have the interests for science, too! 
+        
+        Of course, we're happy with whatever you do. 
+
+        With love, Mom.
+        """
+
+        show kazan neutral
+        with dissolve
+        ka "You say that, but send me internships for work outside my field anyway."
+        show kazan down surprise
+        ka "... Why is my girlfriend talking to my parents behind my back?"
+        hide kazan
+        with dissolve
+
+        s """
+        Dear Kazan,
+        
+        The situation at the university got out to the family. I'm... sorry. 
+        
+        I tell you to believe in others a lot, but… I think this is my fault this time.
+        
+        Maybe you should stay at the cabin until this calms down. I guess you still got this letter, so I'm not sure how safe you'll be from the authorities.
+        
+        Still, I'll come visit. It's the least I can do.
+
+        Hope you're well, Sister.
+        """
+
+        show kazan down trauma
+        ka "I'm doing {=strikethrough} terrible?"
+
         jump loop
+
+    label manu:
+    #btw use call with these   
+        stop music fadeout 
+        if manuscript == 1:
+            show black:
+                alpha .5
+            show kazan neutral
+            with dissolve
+
+            ka """
+            Although the historical recountings of King and Queen are very well executed and relatively accurate, they are much more embellished than realistic. 
+            
+            One portion of history they like to retell are the three plague pandemics, so I have taken it upon myself to investigate the truth of these eras.
+            """
+            hide kazan
+            with dissolve
+            ka """
+            The three plague pandemics refer to three separate outbreaks of the bubonic plague (Yersinia pestis) where major chunks of the affected populations died. 
+            
+            These pandemics are categorized as "disaster times" by historians, meaning there is a higher occurrence of individuals who claim to have met God (or at least, a god).
+            """
+            show kazan neutral smile
+            """
+            Of course, these individuals may be acting in hysteria due to the severity of their situations, but more well documented accounts leads me to believe that these individuals may have been recruited to the Proponents of Chaos.
+            
+            A particular well documented story from the time follows two children who appeared to be resurrected after their deaths from the plague...
+            """
+            hide kazan
+            hide black
+            show king neutral
+            with dissolve
+
+            "This page of the manuscript ends here."
+
+            ki """
+            ... I suppose we do talk about the plague a lot. But you can't fault me for not including the mundane parts. 
+            
+            You've ended this boring manuscript with a cliffhanger for the most exciting part!"  
+            
+            This page is from a few weeks ago. I wonder if there are other pages lying around.
+            """
+
+        elif manuscript == 2:
+            show black:
+                alpha .5
+            show kazan neutral
+            with dissolve
+
+            ka """
+            These documents originates from a small Catholic Church in modern day Germany and details the lives of Aelred A■■■■ and Eilhart T■■■■■, the sons of the local nobility and church respectively. 
+            
+            Despite their class gap, they were very good friends. It is unknown when exactly they met, but it is reported that Eilhart was often seen watching the knightly training of Aelred outside. Perhaps this is why many witnessed them pretend to be opposing warriors of a  medieval war, spinning stories of how such a conflict came to be. 
+            
+            Although the local nobility and church were glad to have formed a bond through their two heirs, they worried that this “friendship” may mix up their family duties. Nobles, after all, have no need to answer the calls of the people, and clergies have no need to fight with sharpened steel. 
+            
+            Thus, the two were advised to keep themselves occupied with their official traditions, much to their discontent.
+            """
+            show kazan hip annoy
+            """
+            However, the line between 'Higher' and 'Lower' disappeared with the onset of the plague. 
+            
+            Eventually, both the noble and common sick were laid on the floor in rows like a mass burial in progress. 
+            
+            Aelred and Eilhart ended up being treated next to each other – perhaps as a gesture of good faith to the two soul bounds – but it wasn't enough to save them from the black death.
+            """
+
+            hide black
+            hide kazan
+            show king neutral sad
+            with dissolve
+
+            "This page of the manuscript ends here."
+            ki """
+            Aelred and Eilhart… it's been a long time since I've heard those names
+
+            Yes, this is a tale very familiar to me. And yet, almost forgotten.
+
+            This is from a week ago. There may be one more page.
+            """
+
+        else:
+            show black:
+                alpha .5
+            show kazan neutral
+            with dissolve
+
+            ka """
+            The next day, the A■■■■ family arrived at the church, having gained late-stage plague symptoms overnight. They all died a few days later. 
+            
+            A day after their deaths, Aelred and Eilhart were seen frolicking in the square. Despite their liveliness, their bodies still sported the markings of a corpse: pale skin, discolored eyes, and most importantly, black fingertips. 
+            
+            This was a frightening sight for the townsfolk: Were they possessed by demons? A warning from God about the nature of the plague?
+            
+            The head priest, Eilhart’s father, was the only one brave enough to directly talk to the two children. 
+            
+            They claimed that they were 'resurrected by a white angel because of their faithfulness to courage and chaos and chosen to spread God’s story.'
+             
+            It was hard to argue. How else would the dead of God's plague come back to life?
+            
+            The children then asked for a blessing before heading out on their endless journey, eyes sparking and smiles gleaming in innocent earnest. 
+            
+            The priest complied, bittersweetly giving his son a goodbye to a world unknown.
+            
+            Before they left, he stated, 'I suppose I was wrong to separate you two, if you have been approved by God. I pray you never come apart again.' 
+            
+            Eilhart replied, 'You are a good man, father. You listen and help the people, both rich and poor. Be true to the fairness of God, and you shall surely lead this town through the plague.'
+            """
+
+            show kazan neutral smile
+            """
+            After the death of the local nobility, the church took control of the town. They had little clue how to lead a town outside of a religious setting, but they managed to stay afloat using the old nobility’s funds. 
+            
+            A small religious holiday was established, turnout to the church doubled, and many young men and women started studying scripture to decipher what the existence of their new prophets meant. 
+            
+            Although the town was happy, it was not prosperous, so they eventually accepted the movement of a new nobility into town to stir business. 
+            
+            Still, the people were happy with fading into obscurity, knowing that their little insignificant town would live on through the tale of two blesséd boys.
+            """
+            
+            show black:
+                alpha 1.0
+            hide kazan
+            with dissolve
+
+            ki "..."
+            """
+            The wind quietly patters on the window, muffled by the mountain of snow.
+            
+            It never snowed like this where we lived, did it? I can hardly remember now.
+            
+            I know the true nature of this world now. It is much larger, methodical, and chaotic than the book you immersed yourself in. 
+            
+            I still follow that white angel, but I imagine they're different than what you believed them to be. 
+            """
+            ki "Are you still proud of me, Father?"
+            """
+            It's a pointless question. Your soul must be far away from me by now, passed through countless individuals.
+            
+            And yet, my soul remains the same little boy.
+            
+            Haha. Although, I suppose it's normal for a son to outlive his father. 
+            """
+            ki "... All I can do, and continue to do, is carry on your vow to fairness."
+            "I'm glad we were remembered."
+        
+        $ manuscript += 1
     
     "IF YOU'RE SEEING THIS in game SOMETHING WENT WRONG PLEASE REPORT THANKS - slushie"
     return
