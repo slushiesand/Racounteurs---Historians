@@ -33,13 +33,45 @@ define gui.about = _p("""
 A game made for Hackclub's December 2025 Storyboard. 
 
 Programs Used: 
-- Visual Code Studio: Coding
-- Ibis Paint X: Art
-- and of course, Ren'Py: The software the game runs on.
+                      
+- Visual Code Studio: Coding (pain)
+                      
+- Ibis Paint X: Art (pain)
+                      
+- and of course, Ren'Py: The software the game runs on. (pain)
 
-And now, for the absurd amount of free assets that I used for this because you can't catch me drawing backgrounds:
-- ... well, there would be, if I made anything in the game yet.
+And now, copy and pasting the URLs (or CC licenses) for all the free stuff I used. I will update to be proper I promise. Please support these people!
+                      
+--- Music ---
+                      
+Symphony no. 5 in Cm, Op. 67 - II. Andante con moto (For Recorder Ensemble - Papalin)
+https://creativecommons.org/licenses/by/3.0/
 
+Grand Dark Waltz Allegretto" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+                      
+"Trio for Piano Violin and Viola" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+                      
+--- Backgrounds ---
+
+https://machaon-maackii.itch.io/dark-forest-backgrounds
+
+https://spiralatlas.itch.io/1900s-office-visual-novel-backgrounds
+
+https://spiralatlas.itch.io/fantasy-house-interior-backgrounds
+                      
+https://potat0master.itch.io/free-visual-novel-backgrounds-personal-rooms-pack-1
+
+https://www.flickr.com/photos/sonstroem/48707386323/ (edited)
+
+https://www.pexels.com/photo/spacious-empty-room-with-natural-light-and-closet-35419439/ (edited)
+
+https://www.pexels.com/photo/books-on-brown-wooden-shelf-3995842/ (edited)
+                      
+Thank you for your service. I love Creative Commons (except that whole AI thing, but open source stuff is cool.)
 """)
 
 
