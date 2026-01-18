@@ -10,7 +10,6 @@ init python:
     daysLeft = 3
 
     location = ["Hallway", "Study", "Kitchen", "Bedroom", "Storage", "Living Room", "Dining Room", "Laundry Room", "Guest Bedroom", "Computer Room", "Bathroom", "Library"]
-    unavailable = []
 
     def locationDetermine(location):
 
@@ -58,19 +57,11 @@ image black = "#000"
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene black
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
     $ combo = random.randint(1000, 9999)
+    $ unavailable = []
 
-    #show top_text "This text is shown at the center-top of the screen"
     #ok btw all the text is prolly gonna be copy and pasted from the google docs i am NOT writing for 8 hours again that was hell
 
     ki """
@@ -486,7 +477,7 @@ label start:
             ki """
             You are a smart man. You have ambitions. You do good research. I wouldn't recommend running away. You have the potential to change the world.
             
-            This wasn't my original plan when I came here, but seeing as we have a mutual understanding of each other, I have a very special proposal for you.”
+            This wasn't my original plan when I came here, but seeing as we have a mutual understanding of each other, I have a very special proposal for you.
             """
 
             show king shrug
@@ -760,7 +751,8 @@ label start:
 
                 Ending: Storytelling with a Friend. (2/4)
                 """
-
+        
+    
         return
     
     label hall:
