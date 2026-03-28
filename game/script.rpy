@@ -43,11 +43,11 @@ init python:
         #yandev ahh code. this is what happens when you havent coded in python for like 2 years
         
 
-define ki = Character("King", color = "#FDCA62")
+define ki = Character("King", color="#FDCA62")
 define ka = Character("Kazan", color="#A6E1FE")
 
 define qu = Character("Queen", color="#5077CA")
-define fu = Character("???", color="#FFF")
+define fu = Character("???", color="#b8b8b8")
 define s = Character("Sister", color="#FFF")
 define m = Character("Mother", color="#FFF")
 
@@ -79,15 +79,17 @@ label start:
 
     ki "... Ugh! I have no inspiration!"
     qu "It's alright, King. We had a good session today. The people seemed to especially enjoy our telling of the Ouroboros Angel."
-    ki "Of course, of course. I'm glad! That one’s really underrated! But everyone in the world has probably heard it already.\nWe need… something NEW!"
-    qu "Hmm. No need to be hasty. I think you're getting restless again.\nPerhaps you ought to take a walk in the forest. Nature is always an inspiring sight. And if not, at least you'll clear your mind."
+    ki "Of course, of course. I'm glad! That one’s really underrated! But everyone in the world has probably heard it already."
+    ki "We need…{w=1} something {color=#FDCA62}{b}new{/b}{/color}!"
+    qu "Hmm. No need to be hasty. I think you're getting restless again.\nPerhaps you ought to take a walk in the forest."
+    qu "Nature is always an inspiring sight. And if not, at least you'll clear your mind."
     
-    "Queen… always trying to comfort me, even if he doesn't smile much himself… and always more patient about life than I."
+    "{color=#5077CA}Queen{/color}… always trying to comfort me, even if he doesn't smile much himself.{w=1}.. and always more patient about life than I."
     
     show cg inn idea
     with vpunch
 
-    ki "YES! That's what I'll do! Thank you, my dear partner! I'll come back with results, surely!"
+    ki "{b}Yes!{/b} That's what I'll do! Thank you, my dear partner! I'll come back with results, surely!"
     qu "Haha… alright, alright. Make sure to wear your winter coat; It's cold outside."
 
     scene black
@@ -124,15 +126,15 @@ label start:
     with wipeleft
 
     """
-    … Perhaps I was wrong. There seems to only be snow and branchless trees out here, along with a never ending whirlwind of snow. Normally, artists covet blank canvases, but if you have nothing to illustrate, they serve no purpose. 
+    … Perhaps I was wrong. There seems to only be snow and branchless trees out here, along with a never ending whirlwind of snow. 
     
-    Worse yet: it's getting late! I promised I would have something when I get back, but I have absolutely nothing on my mind! 
+    Normally, artists covet blank canvases, but if you have nothing to illustrate, they serve no purpose. 
     
-    … Hang on, which way IS back? I don't see my footprints anywhere. Did the snow fill in my footsteps? 
-   
-    That's… not great, but in a pinch, I suppose I could just teleport back. 
+    Worse yet: {b}it's getting late!{/b} I promised I would have something when I get back, but I have absolutely nothing on my mind! 
     
-    Still, I must move forward. 
+    Although, I'm not quite sure which was {i}is{/i} back. Did the snow fill in my footsteps?
+
+    Still, I must move forward. I refuse to go back empty handed.
 
     """
 
@@ -144,7 +146,7 @@ label start:
 
     show king neutral happy at right
     """
-    But in the distance, I see a saving grace: a cabin! 
+    But in the distance, I see a saving grace: {b}a cabin!{/b}
 
     It is unlit, but well maintained. Perhaps the owner isn't home?
 
@@ -154,11 +156,10 @@ label start:
     scene bg window
     with dissolve
     """
-    …
-    Nothing. I guess I'll have to do this the hard way, then. 
+    …{w=1} Nothing. I guess I'll have to do this the hard way, then. 
     """
     menu:
-        "Lockpick through the door, or break through the window?"
+        "Should I lockpick through the door, or break through the window?"
 
         "Break through the window.":
             $ pass
@@ -166,7 +167,7 @@ label start:
         "Break through the window.":
             $ pass
 
-    "Hehe, the answer is obvious! Break through the window!!"
+    "Hehe, the answer is obvious. Break through the window!!"
 
     scene black
     with vpunch
@@ -202,7 +203,7 @@ label start:
 
     #ideally walking sound goes here
     show king think
-    ki "... Ah-hah."
+    ki "... {w=1}Ah-hah."
     "Just what I wanted."
     ki "Alright, get comfy, me. It's going to be a long night."
     hide king
@@ -227,15 +228,16 @@ label start:
     show bg kitchen
     show king neutral happy
     with dissolve
-    ki "Oh my! How unfortunate! Or rather… how fortunate!"
+    ki "Oh my! How unfortunate! Or rather... {w=1}how fortunate!"
     show king shrug
     with vpunch
-    ki "A writer trapped in an empty cabin for who-knows-how-long? That's just SCREAMING for a good story to be found!"
+    ki "A writer trapped in an empty cabin for who-knows-how-long? That's just {color=#FDCA62}{b}screaming{/b}{/color} for a good story to be found!"
     show king neutral happy
     ki "O’ thank you, chaotic particles that have collided in such a way to grant this luck to me!"
-    show king neutral
-    ki "Let me write something to Queen to let him know that I’m okay, then I can begin my expedition."
+    show king shrug
+    ki "Let's kill some time, shall we?"
 
+    $ pancakes = False
     label loop:
         while daysLeft > 0:
             play music "audio/Grand Dark Waltz Allegretto.mp3" if_changed fadein 1.0
@@ -263,11 +265,21 @@ label start:
                         "Should I eat them?"
                     
                         "Yes!!!!!!!!!!!!!":
-                            $ pass
+                            ki "Luckily, I still have some jam from yesterday."
+                            $ pancakes = True
+                            hide king
+                            with fade
+                            """
+                            I apply a generous amount of jelly onto the pancakes and sprinkle some granola crumbs on the top.
+
+                            The pancakes are light and springy, although it is clear that there isn't any sugar added. 
+
+                            However, that does make it hte perfect pair with the sweet apple jelly. It must have been a purposeful decision!
+                            """
+
                         "No.":
-                            $ pass
+                            ki "Luckily, I still have some jam from yesterday."
                 
-                    ki "Luckily, I still have some jam from yesterday."
                     show king back annoy
                     ki "Now that I think about it… I should probably pay for this too…"
             elif timeCounter == 4:
@@ -363,7 +375,7 @@ label start:
     
     The only thing cluing to someone being there was a glass pocketwatch with a broken face.
     
-    Ending: Back in Time. (3/4)
+    Ending: Victim of History (3/4)
     """
     return
         
@@ -397,10 +409,10 @@ label start:
                 
         ka "..."
         ki "So you are here after all."
-        ka "... Hi."        
+        ka "... {w=1}Hi."        
                 
         if itemsFound == 4 and manuscript == 3:
-            ki "Greetings, I am King, a traveling storyteller! … But perhaps… "
+            ki "Greetings, I am King, a traveling storyteller! … {w=1}But perhaps… "
             ki "... You'd know me better as Eilhart."
 
             scene bg basement inner
@@ -408,9 +420,9 @@ label start:
             show king neutral at right
             with fade
 
-            ka "Y-YOU’RE EILHART?!"
+            ka "{b}You're Eilhart?!{/b}"
             show kazan up one
-            ka "Holy gods… it… it all makes sense! Why you guys always talk about the plague, why your hands look the way they do…"
+            ka "My gods… it… it all makes sense! Why you guys always talk about the plague, why your hands look the way they do…"
             ka "Is my theory right? Are all those praising God during disastrous times a part of the Proponents of Chaos?"
 
             show king neutral happy
@@ -420,16 +432,16 @@ label start:
             ka "Ahem. I'm sorry, sir. Please excuse me. I'm just a humble historian interested in your history."
             
             show king neutral
-            ki "I am flattered. I, too, was just a humble boy. I think Aelred is much more interesting, but I suppose we are ‘soulbound,’ as you said."
+            ki "I am flattered. I, too, am a simple humble boy at heart. I think Aelred is much more interesting, but I suppose we are ‘soulbound,’ as you said."
 
             show kazan down surprise
-            ka "Did you really read all of that? Geez."
+            ka "Did you really read all of that? Gods."
             ka "I apologize, I haven't edited that yet. Excuse me if anything is incorrect."
 
             show king back sad 
-            ki "I… couldn’t tell you, really. It's been a long time. I couldn't even tell you my father's face if I wanted to. Or what I looked like back then."
+            ki "I… {w=1}couldn’t tell you, really. It's been a long time. I couldn't even tell you my father's face if I wanted to. Or what I looked like back then."
             show king back happy
-            ki "… Have you ever heard of the Ship of Theseus?"
+            ki "... {w=1}You're familiar with the Ship of Theseus, right?"
 
             show kazan neutral
             "Kazan nodded."
@@ -438,7 +450,11 @@ label start:
             ki """
             Perhaps that's the life I live now. Rebuilt out of primordial soup, a mouthpiece for a God that saved a boy whose body expired centuries ago. Hell, do I even have the same neurons anymore? 
             
-            I am nothing like that boy that died of the plague. And yet I still harbor his memories. Maybe that's what growing up is like. I wouldn't know. We died young.
+            ... {w=1}I am nothing like that boy that died of the plague. And yet I still harbor his memories. 
+            
+            Maybe that's what growing up is like. 
+            
+            I wouldn't know. We died young.
             """
 
             ka "..."
@@ -460,7 +476,7 @@ label start:
             ka "What?"
 
             show king back happy
-            ki "I mean your sister. ‘It's better for your future if you forget about me,’ not to mention the rest of that letter. How depressing!"
+            ki "Haha, I mean your sister. ‘It's better for your future if you forget about me,’ not to mention the rest of that letter. How depressing!"
 
             show kazan hip annoy
             ka "... You don't have to say it so condescendingly. I know what I am."
@@ -470,7 +486,11 @@ label start:
             
             You – actually, I suppose you'd know if you read the letter –, but that woman… I'm not in her good graces. 
             
-            Any association with me gets you on the bottom of society, too. And my sister deserves better.
+            She has unimaginable influence in the science world. In the whole world, really. 
+            
+            And so, any association with me gets you on the bottom of society.
+            
+            My sister deserves better.
             """
 
             show king neutral
@@ -487,10 +507,10 @@ label start:
 
             "Kazan is silent. Even more bewildered than I anticipated."
 
-            ka "Wh… what?? Me? Proponent of Chaos?"
+            ka "Wh… what?? Me? Proponent of Chaos? Are you even {i}authorized{/i} to do that?"
 
             show king neutral happy
-            ki "Sure! We’ve needed someone to do the more formal paperwork for a long time. We've got serious members, but I think you've got enough sanity and experience to do it properly and not be bored out of your mind. Plus, I like you!"
+            ki "Of course! We’ve needed someone to do the more formal paperwork for a long time. We've got serious members, but I think you've got enough sanity and experience to do it properly and not be bored out of your mind. Plus, I like you!"
             
             show kazan neutral
             ka "So… you're just hiring me to be an accountant?"
@@ -513,44 +533,50 @@ label start:
             play music "audio/Trio for Piano Violin and Viola.mp3" fadein 1.0
 
             ki "Knock, knock. I've got a new member to introduce to you."
-            ka "ohmygodohmygod HOW THE HELL AM I BREATHING?"
-            qu "Sir, if you freak out more, I'm not sure how much longer you will continue breathing."
-            ka "Uhm. Okay. Haha. This is fine, then--"
+            ka "Couldn't we have waited at least {i}one day?{/i} Have some sense! I'm not prepared at all!"
+            qu "I'm afraid King is simply like that, Mr. Kazan."
+            ka "... {w=1}I suppose I should not have expected better from someone who is part of a group that prides itself on chaos."
+            fu "But isn't it a wonderful thing? The unpredictability of life?"
+            ka "It is all simply a matter of perspective... {w=1}Wait, {b}sorry?!{/b}"
 
             show cg true two
             with vpunch
 
             fu """
-            A new member? Hahaha~! I haven't heard of such a thing in a few years! 
+            Hahaha! That's what I call unpredictability, my compatriot!
             
-            Pray tell, what’s going on with this one? Anomaly from a liminal space? Immortal by virtue of belief? 
-            
-            Or an underdog full of lunacy?
-            """
-            ka "!!!"
-
-            show cg true three
-            with dissolve
-            fu """
-            Oh, why hello! Are you in awe, or in fear? Both are equally reasonable and likely reactions. 
-            
-            Please, introduce yourself and the time period you're from. It's hard keeping track these days. The timeline keeps fragmenting more and more. It's really concerning!
+            Pray tell, what’s going on with you?{w=1} Anomaly from a liminal space?{w=1} {i}Immortal by virtue of belief?{/i}{w=1} {b}Or an underdog full of lunacy?{/b}
             """
 
             show cg true four 
             with dissolve
 
-            ka "Ahem... Greetings… God? I am Kazan Syed, from the year 20XX. As for classification, I believe I am... 'an underdog full of lunacy… ?'"
-            fu """
-            Oh, modern! How fun! We always need more modern people. I'm still getting the hang of technology, and these two fossils in front of me certainly can't help.
+            ka "I-- Ahem... Greetings. My name is Kazan Syed. I believe I would be... 'an underdog full of lunacy.'"
             
-            Anyway, you CAN call me God, but considering that you're modern, maybe you'd be more familiar with the name ‘FUCA.’ I don't really care, whatever makes you comfortable.
+            fu """
+            Aah, don't get too caught up in the classification. Like you said, it's all a matter of perspective.
+
+            Living and interacting wtih society means partaking in social convention. I get it, i get it...
+
+            I suppose I should introduce myself too, then!
+
+            Hm... {w=1}you {i}can{/i} call me God, but most modern day people call me {color=#b8b8b8}FUCA.{/color} Whichever suits your beliefs better.
+
+            I personally think it's fun to mix up every once in a while!
             """
-            ka "FUCA... like the... ?"
+            ka "FUCA... First Universal Common Ancestor..."
             fu """
-            YES. Exactly. It makes sense, does it not? Some people don’t get it. I guess they just haven't taken a biology class! How shameful!
+            {b}Yes, exactly!{/b}
+
+            It's interesting, isn't it? How science and imagination have increasingly intersected over the years?
+
+            I'm sure you'd know all about that. I've been watching that lady too, you know? Physiological and psychological experiments, reaching so close to the absurd...
+
+            Perhaps she's flying too close to the sun and moon, that one. 
             
-            HAHA, I digress. What I mean to say is, 
+            So you could say you ending up here is fate, if you'd rather believe in that over coincidence.
+
+            {B}Haha,{/b} I digress! What I mean to say is...
             """
 
             scene black
@@ -580,13 +606,17 @@ label start:
 
             show king neutral happy
             ki "Hahaha. Truly, I am sorry. Anything you may need for compensation, I am willing to pay. And I humbly thank you for your devotion to our craft!"
-            
-            show kazan neutral
-            ka "Whatever. I don't want to be responsible for freezing someone to death, anyway. Plus, I’m leaving soon."
+            if pancakes:
+                ki "... Are you sure those pancakes weren't for me, though?"
+                show kazan hip annoy
+                ka "F-forget about the pancakes. Just trash from my own cooking. Maybe I should have poisoned them, considering you exhibited the behavior of a rat."
+            else:
+                show kazan neutral
+                ka "Whatever. I don't want to be responsible for freezing someone to death, anyway. Plus, I’m leaving soon."
             show kazan up one
             ka "But something I could get from a Proponent of Chaos… An invitation? Nay, too greedy."
             show kazan neutral
-            ka "... A few good stories will do. Not your embellished ones, but the stories with all their mundanity attached. I have no interest in falsehoods."
+            ka "... {w=1}A few good stories will do. Not your embellished ones, but the stories with all their mundanity attached. I have no interest in falsehoods."
 
             show king think
             ki """
@@ -597,9 +627,9 @@ label start:
 
             show kazan down surprise
             ka """
-            M-me?! My mundane life?! 
+            M-me?! My cataclysmal life?! 
 
-            What moral could you get out of my life? ‘Don’t go into a dying profession?’ That's common sense!
+            What moral could you get out of my life? ‘Don't get yourself shunned by society and lock yourself in a cabin?’ That's common sense!
             """
 
             menu:
@@ -672,11 +702,12 @@ label start:
                 We will spread them for you, far and wide, and in return, you'll get some payment every once in a while. Perhaps my own personal stories, perhaps some material change. Deal?
                 """
 
-                show kazan up one
-                ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
+                show kazan hip smile
+                ka "Fine. But you better make a good show for all the effort I'll put in."
 
                 show king shrug
-                ki "HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+                ki "Haha! You should so cynical, but I can see it on your face: {i}you're excited{/i}."
+                ki "My new partner in crime, let us spread the stories of man, of chaos and order, of imagination and atoms!"
 
                 scene black:
                     alpha 1.0
@@ -697,17 +728,19 @@ label start:
             
             else: 
                 ka "... Fine. I suppose you know enough to write something decent."
-                ka "But… my life until now…"
-                ka "Are you sure I’ve done enough for a proper conclusion? Is writing obscure papers REALLY the ending you want for my mess of a story?"
+                ka "But… {w=1}my life until now…"
+                ka "Are you sure I’ve done enough for a proper conclusion? Is writing obscure papers {i}really{/i} the ending you want for my mess of a story?"
 
                 show king neutral
                 ki "Well, how would you want it to end?"
 
                 show kazan neutral
-                ka "Obviously, I’d fix all of my mistakes. Or at least, get someone to clean it up for me. Shoot that woman, maybe?"
-                ka "Ha... but that didn't go well for me. Killed the spirits in everyone in my family. "
+                ka "Obviously, I’d fix all of my mistakes. Or at least, get someone to clean it up for me."
+                ka "I wouldn't accept the gun from that woman. Wouldn't try to shoot her... maybe go about some other way of stopping her."
+                show kazan up two
+                ka "Maybe never participate in her experiments at all. But going back in time is highly improbable."
                 show kazan hip annoy
-                ka "So, I don't know. You're the creative one. Go figure."
+                ka "So, I don't know. I was never the creative one. You go figure."
 
                 show king back happy
                 ki """
@@ -724,7 +757,7 @@ label start:
                 ka "A personal way to spread history to the entire world? Outside obscure academic journals, but through THE King and Queen?! O-of course! I oblige! I accept!!"
 
                 show king shrug
-                ki "HAHAHA! THEN, it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
+                ki "{b}Hahaha! Then,{/b} it's a deal, my new partner in crime. Let us spread the stories of man, of chaos and order, of imagination and atoms!"
 
                 scene black:
                     alpha 1.0

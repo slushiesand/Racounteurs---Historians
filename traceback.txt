@@ -1,41 +1,44 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 478, in script
-    show king neutral annoy
-Exception: Image 'king neutral' does not accept attributes 'annoy'.
+  File "game/script.rpy", line 148, in script
+    """
+  File "renpy/text/textsupport.pyx", line 195, in renpy.text.textsupport.tokenize
+Exception: Open text tag at end of string 'But in the distance, I see a saving grace: {a cabin!'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 478, in script
-    show king neutral annoy
-  File "renpy/ast.py", line 1357, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ast.py", line 730, in show_imspec
-    renpy.config.show(
-    ~~~~~~~~~~~~~~~~~^
-        name, at_list=at_list, layer=layer, what=expression, zorder=zorder, tag=tag, behind=behind, atl=atl
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/exports/displayexports.py", line 486, in show
-    if not base.find_target() and renpy.config.missing_show:
-           ~~~~~~~~~~~~~~~~^^                               
-  File "renpy/display/image.py", line 444, in find_target
-    self.target = target._duplicate(a)
-                  ~~~~~~~~~~~~~~~~~^^^
-  File "renpy/display/displayable.py", line 278, in _duplicate
-    args.extraneous()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/display/displayable.py", line 118, in extraneous
-    raise Exception(
-    ...<4 lines>...
-    )
-Exception: Image 'king neutral' does not accept attributes 'annoy'.
+  File "game/script.rpy", line 148, in script
+    """
+  File "renpy/ast.py", line 2923, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 991, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/sayexports.py", line 129, in say
+    who(what, *args, **kwargs)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1543, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1198, in do_display
+    display_say(who, what, self.do_show, **display_args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 868, in display_say
+    what_text.update()
+    ~~~~~~~~~~~~~~~~^^
+  File "renpy/text/text.py", line 2431, in update
+    tokens = self.tokenize(text)
+             ~~~~~~~~~~~~~^^^^^^
+  File "renpy/text/text.py", line 2948, in tokenize
+    tokens.extend(textsupport.tokenize(i))
+                  ~~~~~~~~~~~~~~~~~~~~^^^ 
+  File "renpy/text/textsupport.pyx", line 195, in renpy.text.textsupport.tokenize
+Exception: Open text tag at end of string 'But in the distance, I see a saving grace: {a cabin!'.
 
 Windows-11-10.0.26100-SP0 AMD64
 Ren'Py 8.5.0.25111603
-Raconteurs & Historians 1.0
-Wed Dec 31 21:34:22 2025
+Raconteurs & Historians 1.01
+Sat Mar 28 18:35:02 2026
