@@ -173,9 +173,7 @@ label start:
     with vpunch
 
     """
-    I barrel my body through the window.
-
-    My body rolls over a dining table as glass spills over the floor.
+    I barrel my body through the window. My body rolls over a dining table as glass spills over the floor.
 
     Eventually, I land on the shadowy floor of a kitchen, glass scratching at the inner lining of my coat.
 
@@ -194,17 +192,16 @@ label start:
     show king back happy
 
     """
-    I leave some money on the table as a gesture of good will, and scuttle to find somewhere to hide for the night. 
-
-    If there is someone in the house, I should find somewhere secluded to sleep so they don't find me. 
+    I leave some money on the table as a gesture of good will, and scuttle to find somewhere to hide for the night just in case the occupant of the house isn't as friendly as I hope.
     
     A blanket closet may be a good candidate.
     """
 
     #ideally walking sound goes here
-    show king think
+    hide king
     ki "... {w=1}Ah-hah."
     "Just what I wanted."
+    show king think
     ki "Alright, get comfy, me. It's going to be a long night."
     hide king
     with fade
@@ -219,13 +216,12 @@ label start:
     scene bg kitchen
     with fade
     "It's hard to tell if the scene has been touched since last night, namely because..."
-    show bg snow
+    show bg dining
     with dissolve
     "There's an avalanche of snow coming through the window!"
-    show bg snow2
+    show bg dining
     with vpunch
     "Truthfully, the whole cabin is buried in snow!"
-    show bg kitchen
     show king neutral happy
     with dissolve
     ki "Oh my! How unfortunate! Or rather... {w=1}how fortunate!"
@@ -274,7 +270,7 @@ label start:
 
                             The pancakes are light and springy, although it is clear that there isn't any sugar added. 
 
-                            However, that does make it hte perfect pair with the sweet apple jelly. It must have been a purposeful decision!
+                            However, that does make it the perfect pair with the sweet apple jelly. It must have been a purposeful decision!
                             """
 
                         "No.":
@@ -413,6 +409,8 @@ label start:
                 
         if itemsFound == 4 and manuscript == 3:
             ki "Greetings, I am King, a traveling storyteller! … {w=1}But perhaps… "
+            show cg reveal
+            with dissolve
             ki "... You'd know me better as Eilhart."
 
             scene bg basement inner
@@ -448,7 +446,9 @@ label start:
 
             show king neutral sad 
             ki """
-            Perhaps that's the life I live now. Rebuilt out of primordial soup, a mouthpiece for a God that saved a boy whose body expired centuries ago. Hell, do I even have the same neurons anymore? 
+            Perhaps that's the life I live now. Rebuilt out of primordial soup, a mouthpiece for a God that saved a boy whose body expired centuries ago. 
+            
+            Hell, do I even have the same neurons anymore? 
             
             ... {w=1}I am nothing like that boy that died of the plague. And yet I still harbor his memories. 
             
@@ -476,7 +476,8 @@ label start:
             ka "What?"
 
             show king back happy
-            ki "Haha, I mean your sister. ‘It's better for your future if you forget about me,’ not to mention the rest of that letter. How depressing!"
+            ki "Haha, I mean your sister."
+            ki "‘It's better for your future if you forget about me,’ not to mention the rest of that letter. How depressing!"
 
             show kazan hip annoy
             ka "... You don't have to say it so condescendingly. I know what I am."
@@ -556,7 +557,7 @@ label start:
             fu """
             Aah, don't get too caught up in the classification. Like you said, it's all a matter of perspective.
 
-            Living and interacting wtih society means partaking in social convention. I get it, i get it...
+            Living and interacting with society means partaking in social convention. I get it, i get it!
 
             I suppose I should introduce myself too, then!
 
@@ -576,7 +577,7 @@ label start:
             
             So you could say you ending up here is fate, if you'd rather believe in that over coincidence.
 
-            {B}Haha,{/b} I digress! What I mean to say is...
+            {b}Haha,{/b} I digress! What I mean to say is...
             """
 
             scene black
@@ -827,11 +828,11 @@ label start:
 
         """
         show kazan hip annoy
-        ka "Although,m I suppose this paper was just a hobby paper of mine. Nothing meaningful./n{color=#777777}Was anything I did meaningful, really?{/color}"
+        ka "Although,m I suppose this paper was just a hobby paper of mine. Nothing meaningful.\n{color=#777777}Was anything I did meaningful, really?{/color}"
         show kazan up two
         ka "No matter. One day… I will be all over the newspapers, and everyone will have to admit they were wrong. Wrong about me. Wrong about everything."
         show kazan down trauma
-        ka "You’re All. The. SAME."
+        ka "You’re All. The. {b}Same.{/b}"
 
         hide kazan
         hide black
@@ -859,20 +860,22 @@ label start:
         with fade
 
         "For the working individual, a study is where the mundane yet important documents are stored. As a bonus, you can create the feeling of being an intellectual by decorating like you're a Victorian."
-        "That seems to be the direction of this room, doused in earthy tones. Although, I suppose this is a cabin, so maybe that's the point. "
+        "That seems to be the direction of this room, doused in royal tones. Although, the decoration seems rather consistent through the house, so perhaps the occupant {i}is{/i} that special."
         "An elaborate writing desk sits on the right side of the room. A large lamp looms over stacks of research papers and stationary. I glance over the papers, but most seem unfinished with aggravated babbles detailing how terrible they are."
         show king neutral happy
         with dissolve
         ki "Still, the material itself is interesting. Can't say I've studied much about BCE India myself!"
         "An interesting notecard flutters out when I pick up some papers for my own use."
+        hide king
+        with dissolve
         ka """
         'The Theory of Time Travel'
 
-        There is a simpel ritual that is said to open a portal to the past.
+        There is a simple ritual that is said to open a portal to the past.
         
-        Break the face of a glass-covered clock, and reality itself would shatter in front of your eyes, leaking phyiscal imagination from its cracks.
+        Break the face of a glass-covered clock, and reality itself would shatter in front of your eyes, leaking physical imagination from its cracks.
 
-        Despite its accessibility, however, there are no documented cases of peoplea ctually doing the ritual, not even of people failing.
+        Despite its accessibility, however, there are no documented cases of people actually doing the ritual, not even of people failing.
 
         Well, there is one.
 
@@ -896,7 +899,7 @@ label start:
         "Chips, stale chocolate… a big piece of sugarcane? Interesting, certainly, but I don't think I have the capacity to chew that."
         show king neutral sad
         "... What kind of diet is this?"
-        "...There's a lot of coffee beans inside this cabinet. Light, dark, artisanal… oh, and some teas, too!"
+        "...There's a lot of coffee beans inside this cabinet. Light, dark, artisanal… {w=1}oh, and some teas, too!"
         show king neutral happy
         "Eventually, I find some fruit-flavored biscuits. Hehe, these will do nicely! Thank you, my strange-appetite friend!"
         jump loop
@@ -940,6 +943,7 @@ label start:
 
         hide kazan
         hide black
+        with dissolve
         $ third = (int)((combo % 100) / 10)
         $ itemsFound += 1
 
@@ -1038,7 +1042,7 @@ label start:
         scene bg living
         with fade
 
-        "The living room is cozy and classy: a leather loveseat is flanked by a recliner and a coffee table, and a fireplace houses a modest television. A good place to brainstorm your next story, or cuddle up with a loved one."
+        "The living room is cozy and classy: a leather loveseat is opposed by a recliner and a coffee table, and a fireplace houses a modest television. A good place to brainstorm your next story, or cuddle up with a loved one."
         
         show king back annoy
         with dissolve
@@ -1050,7 +1054,7 @@ label start:
         "Loose papers and an empty coffee mug surround a thick, black notebook simply labeled 'Chaotic Notes.'"
 
         ka """
-        The Proponents of Chaos is a mysterious religious organization that requires the approval of the God of Biotifc Beings themself to be formally inducted. 
+        The Proponents of Chaos is a mysterious religious organization that requires the approval of the God of Biotic Beings themself to be formally inducted. 
         
         Few members exist in the public eye, but all members are reported to wear cloak-like attire when on official business. 
 
@@ -1097,7 +1101,7 @@ label start:
         
         … Seems like one of these is a little late. No good, my friend.
         
-        Hold on. This one isn't a tax document at all… 
+        Hold on. This one isn't a bill document at all… 
         """
         jump manu
 
@@ -1189,7 +1193,7 @@ label start:
        
         I heard the cabin got finished, so I decided to send this letter to test your address out! If you got it, congrats! If this is someone else, give this letter back to my brother!
         
-        I hope you don't use this as an excuse to hole yourself into your studies even more. I don't really get it; why would you graduate, THEN go back to school?
+        I hope you don't use this as an excuse to hole yourself into your studies even more. I don't really get it; why would you graduate, {b}then{/b} go back to school?
         
         But I guess if I lived in basically-a-library, I’d read a bunch of books, too. Fiction, obviously! You should at least read outside, though. Get a porch or something, nerd.
         
@@ -1227,13 +1231,13 @@ label start:
         s """
         Dear Kazan,
         
-        The news about… well, everything, spread across the entire family, and now they're arguing about whose fault it is. 
+        The news about… {w=1}well, everything, spread across the entire family, and now they're arguing about whose fault it is. 
         
-        I tell you to believe in others a lot, but… There’s no coming back from this.
+        I tell you to believe in others a lot, but there’s no coming back from this.
         
         I mean, you’re not the kind of person to just shoot someone. You must have had a good reason, right? 
         
-        But that guy was just a scientist, wasn't he? And your girlfriend... I just don’t know what to think.
+        But that guy was just a scientist, wasn't he? And your girlfriend... {w=1}I just don’t know what to think.
 
         Maybe... you should stay at the cabin until this calms down. I'll come visit.
         
@@ -1242,7 +1246,7 @@ label start:
 
         show kazan down trauma
         with dissolve
-        ka "I'm doing {strikethrough}terrible?{/strikethrough}"
+        ka "I'm doing {s}terrible?{/s}{nw=1}"
         show kazan up two
         ka "I'm doing fine. Thank you for your concern."
         show kazan down surprise
@@ -1286,7 +1290,7 @@ label start:
             hide kazan
             with dissolve
             ka """
-            The three plague pandemics refer to three separate outbreaks of the bubonic plague (Yersinia pestis) where major chunks of the affected populations died. 
+            The three plague pandemics refer to three separate outbreaks of the bubonic plague {i}Yersinia pestis{/i} where major chunks of the affected populations died. 
             
             These pandemics are categorized as "disaster times" by historians, meaning there is a higher occurrence of individuals who claim to have met God (or at least, a god).
             """
@@ -1321,7 +1325,9 @@ label start:
             ka """
             These documents originates from a small Catholic Church in modern day Germany and details the lives of Aelred A■■■■ and Eilhart T■■■■■, the sons of the local nobility and church respectively. 
             
-            Despite their social gap, they were very good friends. It is unknown when exactly they met, but it is reported that Eilhart was often seen watching the knightly training of Aelred outside. Perhaps this is why many witnessed them pretend to be opposing warriors of a  medieval war, spinning stories of how such a conflict came to be. 
+            Despite their social gap, they were very good friends. It is unknown when exactly they met, but it is reported that Eilhart was often seen watching the knightly training of Aelred outside. 
+            
+            Perhaps this is why many witnessed them pretend to be opposing warriors of a  medieval war, spinning stories of how such a conflict came to be. 
             
             Although the local nobility and church were glad to have formed a bond through their two heirs, they worried that this “friendship” may mix up their family duties. Nobles, after all, have no need to answer the calls of the people, and clergies have no need to fight with sharpened steel. 
             
