@@ -28,7 +28,7 @@ https://incompetech.com/music/royalty-free/music.html
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
                       
---- Backgrounds ---
+--- Backgrounds (1.x only) ---
 
 "Dark Forest Backgrounds" ka_missa, Vadim Zalepaev (Machon_maackii)
 Licensed under Creative Commons: Attribution-NoDerivatives 4.0 International License
