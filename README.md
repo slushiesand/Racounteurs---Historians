@@ -1,6 +1,6 @@
 Racounteurs & Historians
 
-A game made for Hackclub's December 2025 Storyboard. 
+A game made for Hackclub's December 2025 Storyboard, revised for the May 2026 Storyboard Zine.
 
 Programs Used: 
                       
