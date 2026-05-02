@@ -1,0 +1,28 @@
+2026-05-02 03:18:18 UTC
+Windows-11-10.0.26100-SP0
+Ren'Py 8.5.0.25111603
+
+Early init took 46 ms
+Loading error handling took 37 ms
+Loading script took 1124 ms
+Loading save slot metadata took 40 ms
+Loading persistent took 0 ms
+Running init code took 77 ms
+Loading analysis data took 1 ms
+Analyze and compile ATL took 3 ms
+Reloading save slot metadata took 14 ms
+Dump and make backups took 43 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 34 ms
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 1 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 58 ms
+Save screen analysis took 17 ms
+Save pyanalysis took 8 ms
+Save bytecode took 31 ms

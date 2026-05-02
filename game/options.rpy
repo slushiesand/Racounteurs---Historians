@@ -23,14 +23,14 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.01"
+define config.version = "2.00"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-A game made for Hackclub's December 2025 Storyboard. 
+A game made for Hackclub's December 2025 Storyboard, revised for the May 2026 Storyboard Zine.
 
 Programs Used: 
                       
@@ -58,7 +58,7 @@ https://incompetech.com/music/royalty-free/music.html
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
                       
---- Backgrounds ---
+--- Backgrounds (1.01 only) ---
 
 "Dark Forest Backgrounds" ka_missa, Vadim Zalepaev (Machon_maackii)
 Licensed under Creative Commons: Attribution-NoDerivatives 4.0 International License
