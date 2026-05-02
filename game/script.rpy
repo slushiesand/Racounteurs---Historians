@@ -564,7 +564,7 @@ label start:
 
             I personally think it's fun to mix up every once in a while!
             """
-            ka "FUCA... First Universal Common Ancestor..."
+            ka "FUCA... The name biologists gave you."
             fu """
             {b}Yes, exactly!{/b}
 
@@ -736,7 +736,7 @@ label start:
 
                 show kazan neutral
                 ka "Obviously, I’d fix all of my mistakes. Or at least, get someone to clean it up for me."
-                ka "I wouldn't accept the gun from that woman. Wouldn't try to shoot her... maybe go about some other way of stopping her."
+                ka "I wouldn't accept the gun from that woman. Wouldn't try to shoot her, then the man wouldn't die... maybe go about some other way of stopping her."
                 show kazan up two
                 ka "Maybe never participate in her experiments at all. But going back in time is highly improbable."
                 show kazan hip annoy
@@ -821,12 +821,13 @@ label start:
         with dissolve
 
         ka """
-        I finally got something published. Not the so-called publishing of selling papers at your doorstep – No! This is a real paper, with real experts reading my paper!
+        I finally got something published after so long. It's a small journal, but... it's out there in the world. {b}Someone{/b} will read it. Someone other than me.
         
-        Hahahaha! I know, it's no Historian, but it proves my writing is not as worthless as everyone makes it out to be. Nay, it has to be valuable in some way.
+        Hahahaha! You can't blacklist me forever. My research isn't worthless. My mission isn't...
+
         """
         show kazan hip annoy
-        ka "Disease is a little overdone these days. Should I go nicher? Ahh, but to establish myself, I should probably do a follow up…"
+        ka "Although,m I suppose this paper was just a hobby paper of mine. Nothing meaningful./n{color=#777777}Was anything I did meaningful, really?{/color}"
         show kazan up two
         ka "No matter. One day… I will be all over the newspapers, and everyone will have to admit they were wrong. Wrong about me. Wrong about everything."
         show kazan down trauma
@@ -863,11 +864,28 @@ label start:
         show king neutral happy
         with dissolve
         ki "Still, the material itself is interesting. Can't say I've studied much about BCE India myself!"
-        "I pick up some papers for my own use, but see an article whose title alarms me."
-        "‘The Art of Time Travel’ by Serena ■■■■."
+        "An interesting notecard flutters out when I pick up some papers for my own use."
+        ka """
+        'The Theory of Time Travel'
+
+        There is a simpel ritual that is said to open a portal to the past.
+        
+        Break the face of a glass-covered clock, and reality itself would shatter in front of your eyes, leaking phyiscal imagination from its cracks.
+
+        Despite its accessibility, however, there are no documented cases of peoplea ctually doing the ritual, not even of people failing.
+
+        Well, there is one.
+
+        A child-prodigy turned world leading scientist is reported by some to have successfully attempted the ritual and came back to report her findings.
+
+        However, very few documents by or about her existence exist today. It is possible that her research is a myth.
+
+        But it's also possible that she erased her own existence. And if that's possible, then...
+        
+        """
         show king back annoy
         ki "..."
-        "I snatch that up, as well. I really thought we got rid of all of those."
+        "I snatch that up, as well. There's no need for regular people to know such things."
         jump loop
 
     label kitchen:
@@ -906,7 +924,7 @@ label start:
         
         Your friends, your family, the strangers you see on the street. They, too, plan their next dinner while spacing out in the shower, put their colored and white clothes in the same wash cycle, and break friendships over an impulsive word. It happens to everyone, everywhere. 
         
-        The people from the past had a life as full as the people now, and the people in the future. History is interesting in that way: how did the people in the future have so different resources, yet die as fulfilled – or even as empty – as the people of today? 
+        The people from the past had a life as full as the people now, and the people in the future. History is interesting in that way: how did the people of the past have so different resources, yet die as fulfilled – or even as empty – as the people of today? 
         
         However, media is finite. No amount of hieroglyphics, Latin, or Cyrillic can depict that infinite complexity. No one is going to write down the joy of smelling fresh clothes, or the dismay of getting mud on your freshly cleaned carpet. 
         
@@ -918,7 +936,7 @@ label start:
         """
         show kazan hip smile
         with dissolve
-        ka "... I think it turned out more like a manifesto. That's fine, I guess. I still kind of like it."
+        ka "... I think it turned out more like a manifesto. That's fine, I guess. I bet my sister would like it."
 
         hide kazan
         hide black
@@ -936,7 +954,7 @@ label start:
         "A storage room may be a good call for stores and such. All types of things can be housed here: important ones, forgotten ones; loved ones and hated ones. And yet, it must all hold some significance if it hasn't been thrown away yet."
         "Unfortunately, this room is even more messy than the rest of the house."
         show king back annoy
-        ki "How do people live like this?"
+        ki "Have I transported myself to hell?"
         "Even I don't have time for this nonsense. Let's just pick the most obscure looking box and hope the atoms smile upon me."
         hide king
         with dissolve
@@ -992,7 +1010,7 @@ label start:
         No wonder no one here has a reflection.
         """
         show kazan down trauma #do you like my naming....
-        ka "I am the only one who deserves to have met you."
+        ka "{b}I am the only one who deserves to have met you.{/b}"
 
         hide kazan
         hide black
@@ -1029,11 +1047,17 @@ label start:
         "Nevertheless, there is work to be done. I sit down on the couch and inspect the table."
         hide king
         with dissolve
-        """
-        Loose papers and an empty coffee mug surround a thick, black notebook simply labeled 'Myths.'
+        "Loose papers and an empty coffee mug surround a thick, black notebook simply labeled 'Chaotic Notes.'"
+
+        ka """
+        The Proponents of Chaos is a mysterious religious organization that requires the approval of the God of Biotifc Beings themself to be formally inducted. 
         
-        The notebook seems to be a chronology of folktales told by yours truly, each with dates of origin and historical notes about their context and accuracy. Not a single page has a margin of space remaining.
+        Few members exist in the public eye, but all members are reported to wear cloak-like attire when on official business. 
+
+        The most prevalent of them all are the racounteurs known simply as 'King' and 'Queen,' though it is unknown how their business of storytelling pertains to the business of a god.
         """
+        
+        "The pages that follow seem to be an ever-expanding chronology of folktales told by yours truly, each with dates of origin and historical notes about their context and accuracy. Not a single page has a margin of space remaining."
         show king neutral happy
         with dissolve
         ki "Oh my, is this the house of a fan? How flattering! I think I'm blushing!"
@@ -1067,9 +1091,9 @@ label start:
         
         Gross, I know, but I think I lost my ability to sweat a long time ago. Not sure about other odors, though.
         
-        Still, it seems rude to use this person’s water bill. I’m fine with stealing food, but I draw the line at paying taxes.
+        Still, it seems rude to use this person’s water. I’m fine with stealing food, but I'd rather not put the burden of paying the water bill on them, too.
         
-        Speaking of, there seems to be some taxes on top of the laundry machine.
+        Speaking of, there seems to be some bills on top of the laundry machine.
         
         … Seems like one of these is a little late. No good, my friend.
         
@@ -1094,7 +1118,7 @@ label start:
         
         I open the wardrobe for any clue of belongings. Nothing at all.
         
-        Nothing… except a single pearl earring.
+        Nothing… except an empty gun case, signed 'xoxo, Olivia.'
         """
         jump loop
 
@@ -1179,18 +1203,16 @@ label start:
         with dissolve
 
         m """
-        Dear Kazan,
-
-        We found a few manuscripts in your old room, so we've sent it along with this letter. We've also sent some new laboratory internships. 
+        My Busy Kazan,
         
-        We haven't told the university your new address, so they're still being sent here.
+        We found a few manuscripts in your old room, so we've sent it along with this letter. We've also sent some of the letters that have accumulated from the university. 
         
-        We all know you're good at writing, so writing some reports for this lab would do some great work for the world. 
+        You should really tell the university your new address soon; These invitations are piling up into boxes over here!
         
-        Your girlfriend has told us your historical work is great for background knowledge, but I think you have the interests for science, too! 
+        But of course, we are glad that you have come so far. 
         
-        Of course, we're happy with whatever you do. 
-
+        Your girlfriend has been telling us all about your experiments, and it sounds like very important research! (Haha, although, I don’t really know anything about the sciences.)  Mom and Dad are very proud of you.
+        
         With love, Mom.
         """
 
@@ -1205,27 +1227,29 @@ label start:
         s """
         Dear Kazan,
         
-        The situation at the university got out to the family. I'm sorry. 
+        The news about… well, everything, spread across the entire family, and now they're arguing about whose fault it is. 
         
-        I tell you to believe in others a lot, but… I think this is my fault this time.
+        I tell you to believe in others a lot, but… There’s no coming back from this.
         
-        Maybe you should stay at the cabin until this calms down. I guess you still got this letter, so I'm not sure how safe you'll be from the authorities.
+        I mean, you’re not the kind of person to just shoot someone. You must have had a good reason, right? 
         
-        Still, I'll come visit. It's the least I can do.
+        But that guy was just a scientist, wasn't he? And your girlfriend... I just don’t know what to think.
 
+        Maybe... you should stay at the cabin until this calms down. I'll come visit.
+        
         Hope you're well, Sister.
         """
 
         show kazan down trauma
         with dissolve
-        ka "I'm doing terrible?--"
+        ka "I'm doing {strikethrough}terrible?{/strikethrough}"
         show kazan up two
         ka "I'm doing fine. Thank you for your concern."
         show kazan down surprise
         ka "Forget about her, okay? She's bad news. Don't trust anything about her. And tell mom and dad to stop contacting me--"
         ka "I don't know. It's not their fault. It's all her fault. and, and……"
         show kazan hip annoy
-        ka "Ugh. Screw this letter. Screw all of this."
+        ka "Ugh. Screw this letter. Screw all of this. It alll leads to destruction in the end. All of it, all of it..."
         show kazan down trauma
         ka "Don't trust the university. Don't trust her. Don't trust anyone."
         ka "Are you after me to o????"
@@ -1297,7 +1321,7 @@ label start:
             ka """
             These documents originates from a small Catholic Church in modern day Germany and details the lives of Aelred A■■■■ and Eilhart T■■■■■, the sons of the local nobility and church respectively. 
             
-            Despite their class gap, they were very good friends. It is unknown when exactly they met, but it is reported that Eilhart was often seen watching the knightly training of Aelred outside. Perhaps this is why many witnessed them pretend to be opposing warriors of a  medieval war, spinning stories of how such a conflict came to be. 
+            Despite their social gap, they were very good friends. It is unknown when exactly they met, but it is reported that Eilhart was often seen watching the knightly training of Aelred outside. Perhaps this is why many witnessed them pretend to be opposing warriors of a  medieval war, spinning stories of how such a conflict came to be. 
             
             Although the local nobility and church were glad to have formed a bond through their two heirs, they worried that this “friendship” may mix up their family duties. Nobles, after all, have no need to answer the calls of the people, and clergies have no need to fight with sharpened steel. 
             
@@ -1335,13 +1359,13 @@ label start:
             ka """
             The next day, the A■■■■ family arrived at the church, having gained late-stage plague symptoms overnight. They all died a few days later. 
             
-            A day after their deaths, Aelred and Eilhart were seen frolicking in the square. Despite their liveliness, their bodies still sported the markings of a corpse: pale skin, discolored eyes, and most importantly, black fingertips. 
+            A day after their deaths, Aelred and Eilhart were seen frolicking and celebrating in the square. Despite their liveliness, their bodies still sported the markings of a corpse: pale skin, discolored eyes, and most importantly, black fingertips. 
             
             This was a frightening sight for the townsfolk: Were they possessed by demons? A warning from God about the nature of the plague?
             
             The head priest, Eilhart’s father, was the only one brave enough to directly talk to the two children. 
             
-            They claimed that they were 'resurrected by a white angel because of their faithfulness to courage and chaos and chosen to spread God’s story.'
+            They claimed that they were 'resurrected by a white angel because of their faithfulness to courage and chaos and chosen to embody God’s story.'
              
             It was hard to argue. How else would the dead of God's plague come back to life?
             
@@ -1362,7 +1386,7 @@ label start:
             
             Although the town was happy, it was not prosperous, so they eventually accepted the movement of a new nobility into town to stir business. 
             
-            Still, the people were happy with fading into obscurity, knowing that their little insignificant town would live on through the tale of two blesséd boys.
+            Still, the people were content with fading into obscurity, knowing that their little insignificant town would live on through the tale of two blesséd boys.
             """
             
             show black:
@@ -1384,7 +1408,7 @@ label start:
             """
             It's a pointless question. Your soul must be far away from me by now, passed through countless individuals.
             
-            And yet, my soul remains the same little boy.
+            And yet, my soul remains in the same little boy.
             
             Haha. Although, I suppose it's normal for a son to outlive his father. 
             """
