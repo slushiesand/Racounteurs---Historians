@@ -2,7 +2,9 @@ Racounteurs & Historians
 
 Short Ren'Py visual novel about a storyteller named "King" who explores a cabin he was snowed into.
 
+
 itch.io description:
+
 "A mysterious storyteller has run out of ideas for his show. Luckily, he has all the time in the world to find material... He's found himself snowed into an empty cabin!
 Follow "King" in a silly yet real adventure as he explores the cabin of a troubled historian, who doesn't seem to be home to witness his home intruder. Find snippets of his personal life, investigate his life-style choices, and... find out something about yourself, too?
 ... Like I said, you have all the time in the world. So have fun."
