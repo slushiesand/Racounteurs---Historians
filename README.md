@@ -1,16 +1,23 @@
 Racounteurs & Historians
 
+Short Ren'Py visual novel about a storyteller named "King" who explores a cabin he was snowed into.
+
+itch.io description:
+"A mysterious storyteller has run out of ideas for his show. Luckily, he has all the time in the world to find material... He's found himself snowed into an empty cabin!
+Follow "King" in a silly yet real adventure as he explores the cabin of a troubled historian, who doesn't seem to be home to witness his home intruder. Find snippets of his personal life, investigate his life-style choices, and... find out something about yourself, too?
+... Like I said, you have all the time in the world. So have fun."
+
+https://slushiesand.itch.io/raconteurs-historians
+
 A game made for Hackclub's December 2025 Storyboard, revised for the May 2026 Storyboard Zine.
+
+--- Credits ---
 
 Programs Used: 
                       
-- Visual Code Studio: Coding (pain)
-                      
-- Ibis Paint X: Art (pain)
-                      
-- and of course, Ren'Py: The software the game runs on. (pain)
-
-And now, copy and pasting the URLs & CC licenses for all the free stuff I used. Please support these people!
+- Visual Code Studio: Coding (pain)                      
+- Ibis Paint X: Art (pain)                      
+- Ren'Py: The software the game runs on. (pain)
                       
 --- Music ---
                       
@@ -60,5 +67,3 @@ https://www.pexels.com/photo/spacious-empty-room-with-natural-light-and-closet-3
 "Books on Brown Wooden Shelf" Jonathan Borba
 "Free to Use, Attribution is not Required" (Public Domain)
 https://www.pexels.com/photo/books-on-brown-wooden-shelf-3995842/ (edited)
-                      
-Thank you for your service. I love Creative Commons (except that whole AI thing, but open source stuff is cool.)
